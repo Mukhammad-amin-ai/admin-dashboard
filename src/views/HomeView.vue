@@ -53,7 +53,9 @@
           <DashboardCards />
         </div>
       </div>
-      f
+      <div class="wrapper">
+
+      </div>
     </div>
   </div>
 </template>
@@ -246,7 +248,7 @@ import DashboardCards from '../components/dashboard-card.vue'
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 100px;
+  top: 380px;
 }
 
 .dashboard-cards {
@@ -265,6 +267,8 @@ import DashboardCards from '../components/dashboard-card.vue'
   width: 100%;
   height: 1758px;
   background-color: #F8F8F8;
- 
+  display: flex;
+  justify-content: center;
+
 }
 </style>

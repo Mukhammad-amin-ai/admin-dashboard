@@ -21,12 +21,12 @@
                     <p>Active</p>
                 </div>
                 <div class="box">
-                    <h4>20,6K</h4>
-                    <p>Active</p>
+                    <h4>1,6K</h4>
+                    <p>Inactive</p>
                 </div>
                 <div class="box">
-                    <h4>20,6K</h4>
-                    <p>Active</p>
+                    <h4>1,2K</h4>
+                    <p>Suspended </p>
                 </div>
             </div>
         </div>
