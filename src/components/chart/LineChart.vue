@@ -157,7 +157,7 @@ const chartData: ChartData = {
       dashArray: [0, 7, 8],
     },
     title: {
-      text: "Average High & Low Temperature",
+      text: "",
       align: "left",
     },
     grid: {
