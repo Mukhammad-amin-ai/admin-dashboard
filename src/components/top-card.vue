@@ -3,41 +3,53 @@
         <td>
             <div class="bottom-item">
                 <div class="customer-logo">
-                    <img src="../assets/images/Avatar.png" alt="">
+                    <img :src="icon" alt="icon">
                 </div>
                 <div class="text">
-                    <h5>Yahoo!</h5>
-                    <p>Since 01/01/2020</p>
+                    <h5>{{ name }}</h5>
+                    <p>Since {{ date }}</p>
                 </div>
             </div>
         </td>
         <td>
             <div class="bottom-item">
                 <div class="percentage">
-                    hello
+                    <img src="../assets/svg/Frame.svg" alt="Frame">
+                    <div class="fillBox">
+
+                    </div>
                 </div>
                 <div class="percent-text">
-                    <h5>92%</h5>
+                    <h5>{{ percent }}</h5>
                 </div>
             </div>
         </td>
         <td>
             <div class="bottom-item">
                 <div class="margin">
-                    <h5>$300</h5>
+                    <h5>$ {{ money }}</h5>
                 </div>
             </div>
         </td>
         <td>
             <div class="bottom-item">
                 <h5>
-                    15%
+                    {{ margin }} %
                 </h5>
             </div>
         </td>
     </tr>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
+
+defineProps({
+    icon: String,
+    name: String,
+    date: String,
+    percent: String,
+    money: String,
+    margin: String
+})
 
 </script>
 <style scoped>
@@ -54,9 +66,22 @@
 
 td:nth-child(2) .bottom-item .percentage {
     width: 59px;
-    height: 30.115px;
-    background-color: aqua;
+    height: 30px;
+    position: relative;
 }
+
+td:nth-child(2) .bottom-item .percentage img {
+    position: absolute;
+    z-index: 99;
+}
+
+/* td:nth-child(2) .bottom-item .percentage .fillBox {
+    width: 60px;
+    height: 30px;
+    z-index: 1;
+    background: rgb(255, 101, 101);
+    background: linear-gradient(60deg, rgba(255, 101, 101, 1) 30%, rgba(255, 205, 2, 1) 70%, rgba(32, 227, 1, 1) 100%);
+} */
 
 td:nth-child(2) .bottom-item .percent-text h5 {
     font-size: 14px;
@@ -65,6 +90,7 @@ td:nth-child(2) .bottom-item .percent-text h5 {
     font-family: Euclid-Medium;
     font-weight: 500;
 }
+
 
 td:nth-child(3) .bottom-item {
     justify-content: center !important;
