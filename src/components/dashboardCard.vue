@@ -140,4 +140,13 @@ defineProps({
     font-weight: 500;
     font-family: Euclid-Regular;
 }
+
+@media screen and (max-width:705px) {
+  .stat {
+    justify-content: end;
+  }
+}
+
+
+
 </style>

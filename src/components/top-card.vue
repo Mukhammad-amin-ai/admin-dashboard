@@ -154,6 +154,36 @@ td:nth-child(4) .bottom-item h5 {
     td:nth-child(3) .bottom-item {
         padding: 0;
     }
+
+    td:nth-child(4) .bottom-item {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    td:nth-child(3) .bottom-item {
+        padding: 16px 24px;
+    }
+
+    td:nth-child(4) .bottom-item {
+        padding: 16px 24px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    td:nth-child(1) .bottom-item {
+        padding: 10px;
+    }
+
+    td:nth-child(2) .bottom-item {
+        padding: 10px;
+    }
+
+
+    td:nth-child(3) .bottom-item {
+        padding: 0;
+    }
+
     td:nth-child(4) .bottom-item {
         padding: 0;
     }
