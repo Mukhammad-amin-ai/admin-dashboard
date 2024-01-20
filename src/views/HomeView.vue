@@ -216,6 +216,7 @@
                 <tbody>
                   <topCard
                     icon="/img/Avatar.png"
+                    percentProp="92"
                     name="Yahoo!"
                     date="01/01/2020"
                     percent="92%"
@@ -224,6 +225,7 @@
                   />
                   <topCard
                     icon="/img/Avatar2.png"
+                    percentProp="90"
                     name="Adidas"
                     date="01/01/2020"
                     percent="90%"
@@ -232,6 +234,7 @@
                   />
                   <topCard
                     icon="/img/Avatar3.png"
+                    percentProp="88"
                     name="Microsoft"
                     date="01/01/2020"
                     percent="88%"
@@ -240,6 +243,7 @@
                   />
                   <topCard
                     icon="/img/Avatar4.png"
+                    percentProp="85"
                     name="IKEA"
                     date="01/01/2020"
                     percent="85%"
@@ -248,6 +252,7 @@
                   />
                   <topCard
                     icon="/img/Avatar5.png"
+                    percentProp="85"
                     name="VTB"
                     date="01/01/2020"
                     percent="85%"
@@ -292,41 +297,46 @@
                 <tbody>
                   <topCard
                     icon="/img/Avatar.png"
+                    percentProp="14"
                     name="Yahoo!"
                     date="01/01/2020"
-                    percent="92%"
+                    percent="14%"
                     money="300"
                     margin="15"
                   />
                   <topCard
                     icon="/img/Avatar2.png"
+                    percentProp="15"
                     name="Adidas"
                     date="01/01/2020"
-                    percent="90%"
+                    percent="15%"
                     money="300"
                     margin="15"
                   />
                   <topCard
                     icon="/img/Avatar3.png"
+                    percentProp="18"
                     name="Microsoft"
                     date="01/01/2020"
-                    percent="88%"
+                    percent="18%"
                     money="300"
                     margin="15"
                   />
                   <topCard
                     icon="/img/Avatar4.png"
+                    percentProp="20"
                     name="IKEA"
                     date="01/01/2020"
-                    percent="85%"
+                    percent="20%"
                     money="300"
                     margin="15"
                   />
                   <topCard
                     icon="/img/Avatar5.png"
+                    percentProp="23"
                     name="VTB"
                     date="01/01/2020"
-                    percent="85%"
+                    percent="23%"
                     money="300"
                     margin="15"
                   />
@@ -891,6 +901,10 @@ tbody tr {
   .coast {
     height: 590px;
   }
+
+  .wrapper {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -911,10 +925,6 @@ tbody tr {
 @media screen and (max-width: 375px) {
   .header-section .wrapper {
     width: 90%;
-  }
-
-  .wrapper {
-    width: 100%;
   }
 
   .coast {
