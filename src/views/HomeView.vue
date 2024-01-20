@@ -132,13 +132,94 @@
             </div>
           </div>
         </div>
-
         <div class="top-best">
           <div class="customer">
-
+            <div class="customer-header">
+              <h4>Top Best 5 Customers</h4>
+              <div class="customer-btn">
+                <button class="btn btn-active">Broker</button>
+                <button class="btn">Carrier</button>
+              </div>
+            </div>
+            <div class="customer-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="table-item">
+                        Customer Name
+                      </div>
+                    </th>
+                    <th>
+                      <div class="table-item">
+                        Performance
+                      </div>
+                    </th>
+                    <th>
+                      <div class="table-item">
+                        $ Margin
+                      </div>
+                    </th>
+                    <th>
+                      <div class="table-item">
+                        % Margin
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <topCard />
+                  <topCard />
+                  <topCard />
+                  <topCard />
+                  <topCard />
+                </tbody>
+              </table>
+            </div>
           </div>
           <div class="customer">
-
+            <div class="customer-header">
+              <h4>Top Best 5 Customers</h4>
+              <div class="customer-btn">
+                <button class="btn btn-active">Broker</button>
+                <button class="btn">Carrier</button>
+              </div>
+            </div>
+            <div class="customer-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="table-item">
+                        Customer Name
+                      </div>
+                    </th>
+                    <th>
+                      <div class="table-item">
+                        Performance
+                      </div>
+                    </th>
+                    <th>
+                      <div class="table-item">
+                        $ Margin
+                      </div>
+                    </th>
+                    <th>
+                      <div class="table-item">
+                        % Margin
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <topCard />
+                  <topCard />
+                  <topCard />
+                  <topCard />
+                  <topCard />
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -149,6 +230,7 @@
 <script lang="ts" setup>
 import DashboardCards from '../components/dashboardCard.vue'
 import circleReuse from '../assets/svg/circle-reuse.vue'
+import topCard from '../components/top-card.vue'
 
 </script>
 <style scoped>
@@ -484,5 +566,98 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   border-radius: 16px;
   border: 1px solid #EAECF0;
   background: #FFF;
+}
+
+.customer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  align-self: stretch;
+  margin: 20px 24px;
+}
+
+.customer-header h4 {
+  color: #101828;
+  font-size: 18px;
+  font-style: normal;
+  font-family: Euclid-SemiBold;
+}
+
+.customer-btn {
+  display: inline-flex;
+  padding: 6px;
+  align-items: flex-start;
+  gap: 4px;
+  border-radius: 12px;
+  border: 1px solid #DBE2E8;
+  background: #FFF;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  padding: 6px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-style: normal;
+  color: #000;
+  font-family: Euclid-Medium;
+  cursor: pointer;
+}
+
+.btn-active {
+  background: #1C1F27;
+  color: #FFF !important;
+}
+
+.customer-table {
+  width: 100%;
+  height: auto;
+}
+
+table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+}
+
+thead tr {
+  width: 100%;
+  background-color: #F9FAFB;
+
+}
+
+th {
+  color: #475467;
+  font-size: 12px;
+  font-style: normal;
+  font-family: Euclid-Medium;
+}
+
+.table-item {
+  display: flex;
+  height: 44px;
+  padding: 12px 24px;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+}
+
+th:nth-child(3) .table-item {
+  justify-content: center;
+}
+
+th:nth-child(4) .table-item {
+  justify-content: center;
+}
+
+tbody tr {
+  width: 100%;
+  background-color: #fff;
 }
 </style>
