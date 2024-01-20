@@ -38,7 +38,9 @@ interface ChartOptions {
     enabled: boolean;
   };
   stroke: {
+    width: number[];
     curve: string;
+    dashArray: number[];
   };
   title: {
     text: string;
@@ -52,7 +54,8 @@ interface ChartOptions {
     };
   };
   markers: {
-    size: number;
+    size: number[];
+    shape: string;
   };
   xaxis: {
     categories: string[];
@@ -84,11 +87,11 @@ interface ChartData {
 const chartData: ChartData = {
   series: [
     {
-      name: "High - 2013",
+      name: "Revenue",
       data: [28, 29, 33, 36, 32, 32, 33],
     },
     {
-      name: "Low - 2013",
+      name: "Cost",
       data: [12, 11, 14, 18, 17, 13, 13],
     },
   ],
@@ -102,35 +105,38 @@ const chartData: ChartData = {
         top: 18,
         left: 7,
         blur: 10,
-        opacity: 0.2,
+        opacity: 0.1,
       },
       toolbar: {
         show: false,
       },
     },
-    colors: ["#77B6EA", "#545454"],
+    colors: ["#92BAFB", "#F29E61"],
     dataLabels: {
-      enabled: true,
+      enabled: false,
     },
     stroke: {
-      curve: "smooth",
+      width: [9, 3, 1],
+      curve: "straight",
+      dashArray: [0, 5, 8],
     },
     title: {
       text: "Average High & Low Temperature",
       align: "left",
     },
     grid: {
-      borderColor: "#e7e7e7",
+      borderColor: "transparent",
       row: {
         colors: ["#f3f3f3", "transparent"],
-        opacity: 0.5,
+        opacity: 0,
       },
     },
     markers: {
-      size: 1,
+      size: [4, 5, 1, 2],
+      shape: "circle",
     },
     xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep' , "Nov" , "Dec"],
       title: {
         text: "Month",
       },
