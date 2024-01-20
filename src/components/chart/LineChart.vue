@@ -102,7 +102,6 @@ interface ChartData {
   series: SeriesData[];
   chartOptions: ChartOptions;
 }
-const isVisibleMarkers = ref(false);
 
 const chartData: ChartData = {
   series: [
@@ -214,24 +213,43 @@ const chartData: ChartData = {
 .apexcharts-tooltip {
   background: #192038 !important;
   color: white !important;
+  background-size: 17px 9px; /* Set the size based on your SVG dimensions */
+  background-position: center bottom; /* Adjust the position as needed */
+  color: white !important;
+  overflow: visible !important;
 }
+.apexcharts-tooltip::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='9' viewBox='0 0 17 9' fill='none'%3E%3Cpath d='M8.5 9L16.7272 0H0.272758L8.5 9Z' fill='%23192038'/%3E%3C/svg%3E");
+  opacity: 1;
+  background: transparent !important;
+  transform: translateY(6px);
+  fill: #192038;
+  height: 50px;
+  width: 50px;
+  z-index: 99;
+  right: 0;
+  left: 41%;
+  position: absolute;
+  bottom: -40px !important;
+  overflow: visible !important;
+}
+
 .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
   background: #192038 !important;
   border: 0 !important;
   display: none;
 }
 .apexcharts-tooltip-text-y-label {
-  fill: var(#92969f) !important; 
+  fill: var(#92969f) !important;
 
   /* C1/Medium */
-  font-family: Euclid-Regular , sans-serif !important; 
+  font-family: Euclid-Regular, sans-serif !important;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px; /* 133.333% */
 }
 .apexcharts-tooltip-text-y-value {
-  font-family: Euclid-Regular , sans-serif !important; 
-
+  font-family: Euclid-Regular, sans-serif !important;
 }
 </style>
