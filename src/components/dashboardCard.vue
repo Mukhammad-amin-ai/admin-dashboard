@@ -6,33 +6,45 @@
                     <div class="icon">
                         <img src="../assets/icons/Customer-Icon.svg" alt="Customer">
                     </div>
-                    <h4>Customers</h4>
+                    <h4>{{ topText }}</h4>
                 </div>
                 <div class="right">
                     <div class="stat">
                         <img src="../assets/icons/grow.svg" alt="grow">
-                        <span>16,5%</span> +1,293 month
+                        <span>{{ percent }}</span> {{ grow }} month
                     </div>
                 </div>
             </div>
             <div class="card-bottom">
                 <div class="box">
-                    <h4>20,6K</h4>
-                    <p>Active</p>
+                    <h4>{{ box1 }}</h4>
+                    <p>{{ box1text }}</p>
                 </div>
                 <div class="box">
-                    <h4>1,6K</h4>
-                    <p>Inactive</p>
+                    <h4>{{ box2 }}</h4>
+                    <p>{{ box2text }}</p>
                 </div>
                 <div class="box">
-                    <h4>1,2K</h4>
-                    <p>Suspended </p>
+                    <h4>{{ box3 }}</h4>
+                    <p>{{ box3text }}</p>
                 </div>
             </div>
         </div>
     </div>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
+
+defineProps({
+    topText: String,
+    box1text: String,
+    box2text: String,
+    box3text: String,
+    box1: String,
+    box2: String,
+    box3: String,
+    percent: String,
+    grow: String,
+})
 
 </script>
 <style scoped>
@@ -75,9 +87,10 @@
     display: flex;
     justify-content: end;
     align-items: flex-start;
-   
+
 }
-.stat{
+
+.stat {
     width: 100%;
     height: auto;
     display: flex;
@@ -88,18 +101,20 @@
     font-family: Euclid-Regular;
 }
 
-.stat span{
+.stat span {
     color: #4478FF;
     font-weight: 600;
 }
-.card-bottom{
+
+.card-bottom {
     width: 100%;
     height: 50%;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
-.box{
+
+.box {
     width: 88px;
     height: 56px;
     display: flex;
@@ -107,17 +122,18 @@
     gap: 8px;
     justify-content: center;
 }
-.box h4{
+
+.box h4 {
     font-size: 24px;
     font-weight: 500;
     font-family: Euclid-Regular;
 }
 
-.box:nth-child(1) h4{
+.box:nth-child(1) h4 {
     font-weight: 600;
 }
 
-.box p{
+.box p {
     color: #92969F;
     font-size: 14px;
     font-weight: 500;

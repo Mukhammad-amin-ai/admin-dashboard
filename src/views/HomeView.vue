@@ -21,16 +21,10 @@
 
             <div class="docs">
               Export Data
-              <img
-                src="../assets/icons/document-download.svg"
-                alt="document-download"
-              />
+              <img src="../assets/icons/document-download.svg" alt="document-download" />
             </div>
             <div class="search">
-              <img
-                src="../assets/icons/search-normal.svg"
-                alt="search-normal"
-              />
+              <img src="../assets/icons/search-normal.svg" alt="search-normal" />
             </div>
           </div>
         </div>
@@ -54,10 +48,14 @@
     <div class="main-section">
       <div class="dashboard-wrapper">
         <div class="dashboard-cards">
-          <DashboardCards />
-          <DashboardCards />
-          <DashboardCards />
-          <DashboardCards />
+          <DashboardCards topText="Customers" box1text="Active" box2text="Inactive" box3text="Suspended" box1="20,6K"
+            box2="1,6K" box3="1,2K" percent="16,5%" grow="+1,293"/>
+          <DashboardCards topText="Companies" box1text="Total" box2text="Parent" box3text="Child" box1="15,000"
+            box2="13,000" box3="12,000" percent="21,5%" grow="+1,293" />
+          <DashboardCards topText="Users" box1text="Total" box2text="Active" box3text="Inactive" box1="12,099" box2="12K"
+            box3="99" percent="6,5%" grow="+1,293" />
+          <DashboardCards topText="Loads Sold" box1text="Total" box2text="W/Platform" box3text="Outside P." box1="64,200"
+            box2="50K" box3="14,200" percent="28,5%" grow="+1,293" />
         </div>
       </div>
       <div class="wrapper">
@@ -135,7 +133,7 @@
               </div>
             </div>
             <div class="chart">
-          
+
             </div>
           </div>
         </div>
@@ -424,6 +422,7 @@ import LineChartVue from "@/components/chart/LineChart.vue";
   background-color: #f8f8f8;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .dashboard-wrapper {
@@ -432,7 +431,7 @@ import LineChartVue from "@/components/chart/LineChart.vue";
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 380px;
+  top: -160px;
 }
 
 .dashboard-cards {
@@ -662,5 +661,4 @@ th:nth-child(4) .table-item {
 tbody tr {
   width: 100%;
   background-color: #fff;
-}
-</style>
+}</style>
