@@ -55,8 +55,82 @@
       </div>
       <div class="wrapper">
         <div class="average">
-          <div class="coast"></div>
-          <div class="payout"></div>
+          <div class="coast">
+            <h3>Average Cost - Broker</h3>
+            <div class="average-card">
+              <div class="average-item">
+                <div class="top">
+                  <div class="circle">
+                    <circleReuse fill="#92BAFB" />
+                  </div>
+                  Average Revenue
+                </div>
+                <div class="bottom">
+                  <span>$102,838</span>
+                  <div class="statistic">
+                    <img src="../assets/icons/decrease.svg" alt="decrease">
+                    6,5%
+                  </div>
+                </div>
+              </div>
+              <div class="average-item">
+                <div class="top">
+                  <div class="circle">
+                    <circleReuse fill="#F29E61" />
+                  </div>
+                  Average Cost
+                </div>
+                <div class="bottom">
+                  <span>$10,200</span> (20%)
+                  <div class="statistic">
+                    <img src="../assets/icons/decrease.svg" alt="decrease">
+                    6,5%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chart">
+
+            </div>
+          </div>
+          <div class="payout">
+            <h3>Average Cost - Broker</h3>
+            <div class="average-card">
+              <div class="average-item">
+                <div class="top">
+                  <div class="circle">
+                    <circleReuse fill="#92BAFB" />
+                  </div>
+                  Average Revenue
+                </div>
+                <div class="bottom">
+                  <span>$102,838</span>
+                  <div class="statistic">
+                    <img src="../assets/icons/grow.svg" alt="grow">
+                    6,5%
+                  </div>
+                </div>
+              </div>
+              <div class="average-item">
+                <div class="top">
+                  <div class="circle">
+                    <circleReuse fill="#4478FF" />
+                  </div>
+                  Average Margin
+                </div>
+                <div class="bottom">
+                  <span>$10,200</span> (20%)
+                  <div class="statistic">
+                    <img src="../assets/icons/grow.svg" alt="grow">
+                    6,5%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chart">
+
+            </div>
+          </div>
         </div>
 
         <div class="top-best">
@@ -73,8 +147,8 @@
 </template>
 
 <script lang="ts" setup>
-import DashboardCards from '../components/dashboard-card.vue'
-
+import DashboardCards from '../components/dashboardCard.vue'
+import circleReuse from '../assets/svg/circle-reuse.vue'
 
 </script>
 <style scoped>
@@ -298,6 +372,82 @@ import DashboardCards from '../components/dashboard-card.vue'
   border-radius: 12px;
   border: 1px solid #fff;
   background: #FFF;
+  padding: 24px 34px 0 34px;
+}
+
+.coast h3 {
+  color: #2B2E3A;
+  font-family: Euclid-SemiBold;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.average-card {
+  margin-top: 25px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 46.72px;
+  align-items: center;
+}
+
+.average-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.average-item .top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #92969F;
+  font-family: Euclid-Medium;
+  font-size: 12px;
+  font-style: normal;
+}
+
+
+.average-item .top .circle {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.average-item .bottom {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  color: #92969F;
+  font-family: Euclid-Medium;
+
+}
+
+.average-item .bottom span {
+  color: #2B2E3A;
+  font-size: 24px;
+  font-style: normal;
+  font-family: Euclid-Medium;
+
+}
+
+.average-item .bottom .statistic {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-style: normal;
+  color: #60BF98;
+  font-family: Euclid-SemiBold;
+}
+
+.chart {
+  width: 100%;
+  height: 100px;
+  margin-top: 40px;
 }
 
 .payout {
@@ -306,9 +456,15 @@ import DashboardCards from '../components/dashboard-card.vue'
   border-radius: 12px;
   border: 1px solid #fff;
   background: #FFF;
+  padding: 24px 34px 0 34px;
 }
 
-
+.payout h3 {
+  color: #2B2E3A;
+  font-family: Euclid-SemiBold;
+  font-size: 16px;
+  font-style: normal;
+}
 
 
 .top-best {
