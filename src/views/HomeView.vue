@@ -21,16 +21,10 @@
 
             <div class="docs">
               Export Data
-              <img
-                src="../assets/icons/document-download.svg"
-                alt="document-download"
-              />
+              <img src="../assets/icons/document-download.svg" alt="document-download" />
             </div>
             <div class="search">
-              <img
-                src="../assets/icons/search-normal.svg"
-                alt="search-normal"
-              />
+              <img src="../assets/icons/search-normal.svg" alt="search-normal" />
             </div>
           </div>
         </div>
@@ -54,54 +48,14 @@
     <div class="main-section">
       <div class="dashboard-wrapper">
         <div class="dashboard-cards">
-          <DashboardCards
-            img="/icons/Customer-Icon.svg"
-            topText="Customers"
-            box1text="Active"
-            box2text="Inactive"
-            box3text="Suspended"
-            box1="20,6K"
-            box2="1,6K"
-            box3="1,2K"
-            percent="16,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/Company-Icon.svg"
-            topText="Companies"
-            box1text="Total"
-            box2text="Parent"
-            box3text="Child"
-            box1="15,000"
-            box2="13,000"
-            box3="12,000"
-            percent="21,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/User-Icon.svg"
-            topText="Users"
-            box1text="Total"
-            box2text="Active"
-            box3text="Inactive"
-            box1="12,099"
-            box2="12K"
-            box3="99"
-            percent="6,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/Box-Icon.svg"
-            topText="Loads Sold"
-            box1text="Total"
-            box2text="W/Platform"
-            box3text="Outside P."
-            box1="64,200"
-            box2="50K"
-            box3="14,200"
-            percent="28,5%"
-            grow="+1,293"
-          />
+          <DashboardCards img="/icons/Customer-Icon.svg" topText="Customers" box1text="Active" box2text="Inactive"
+            box3text="Suspended" box1="20,6K" box2="1,6K" box3="1,2K" percent="16,5%" grow="+1,293" />
+          <DashboardCards img="/icons/Company-Icon.svg" topText="Companies" box1text="Total" box2text="Parent"
+            box3text="Child" box1="15,000" box2="13,000" box3="12,000" percent="21,5%" grow="+1,293" />
+          <DashboardCards img="/icons/User-Icon.svg" topText="Users" box1text="Total" box2text="Active"
+            box3text="Inactive" box1="12,099" box2="12K" box3="99" percent="6,5%" grow="+1,293" />
+          <DashboardCards img="/icons/Box-Icon.svg" topText="Loads Sold" box1text="Total" box2text="W/Platform"
+            box3text="Outside P." box1="64,200" box2="50K" box3="14,200" percent="28,5%" grow="+1,293" />
         </div>
       </div>
       <div class="wrapper">
@@ -178,7 +132,9 @@
                 </div>
               </div>
             </div>
-            <div class="chart"></div>
+            <div class="chart">
+
+            </div>
           </div>
         </div>
         <div class="top-best">
@@ -195,7 +151,9 @@
                 <thead>
                   <tr>
                     <th>
-                      <div class="table-item">Customer Name</div>
+                      <div class="table-item">
+                        Customer Name
+                      </div>
                     </th>
                     <th>
                       <div class="table-item">
@@ -206,14 +164,19 @@
                       </div>
                     </th>
                     <th>
-                      <div class="table-item">$ Margin</div>
+                      <div class="table-item">
+                        $ Margin
+                      </div>
                     </th>
                     <th>
-                      <div class="table-item">% Margin</div>
+                      <div class="table-item">
+                        % Margin
+                      </div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                   <topCard
                     icon="/img/Avatar.png"
                     percentProp="92"
@@ -259,6 +222,18 @@
                     money="300"
                     margin="15"
                   />
+=======
+                  <topCard icon="/img/Avatar.png" percentProp="92" name="Yahoo!" date="01/01/2020" percent="92%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar2.png" percentProp="90" name="Adidas" date="01/01/2020" percent="90%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar3.png" percentProp="88" name="Microsoft" date="01/01/2020" percent="88%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar4.png" percentProp="85" name="IKEA" date="01/01/2020" percent="85%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar5.png" percentProp="85" name="VTB" date="01/01/2020" percent="85%" money="300"
+                    margin="15" />
+>>>>>>> 4d475e45dfead5160ef25f057632fdbb61e8b108
                 </tbody>
               </table>
             </div>
@@ -276,7 +251,9 @@
                 <thead>
                   <tr>
                     <th>
-                      <div class="table-item">Customer Name</div>
+                      <div class="table-item">
+                        Customer Name
+                      </div>
                     </th>
                     <th>
                       <div class="table-item">
@@ -287,14 +264,19 @@
                       </div>
                     </th>
                     <th>
-                      <div class="table-item">$ Margin</div>
+                      <div class="table-item">
+                        $ Margin
+                      </div>
                     </th>
                     <th>
-                      <div class="table-item">% Margin</div>
+                      <div class="table-item">
+                        % Margin
+                      </div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                   <topCard
                     icon="/img/Avatar.png"
                     percentProp="14"
@@ -340,6 +322,18 @@
                     money="300"
                     margin="15"
                   />
+=======
+                  <topCard icon="/img/Avatar.png" percentProp="14" name="Yahoo!" date="01/01/2020" percent="14%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar2.png" percentProp="15" name="Adidas" date="01/01/2020" percent="15%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar3.png" percentProp="18" name="Microsoft" date="01/01/2020" percent="18%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar4.png" percentProp="20" name="IKEA" date="01/01/2020" percent="20%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar5.png" percentProp="23" name="VTB" date="01/01/2020" percent="23%" money="300"
+                    margin="15" />
+>>>>>>> 4d475e45dfead5160ef25f057632fdbb61e8b108
                 </tbody>
               </table>
             </div>
@@ -351,10 +345,13 @@
 </template>
 
 <script lang="ts" setup>
-import DashboardCards from "@/components/dashboardCard.vue";
-import topCard from "@/components/top-card.vue";
-import circleReuse from "../assets/svg/circle-reuse.vue";
+
+import DashboardCards from '@/components/dashboardCard.vue'
+import topCard from '@/components/top-card.vue'
+import circleReuse from '../assets/svg/circle-reuse.vue'
 import LineChartVue from "@/components/chart/LineChart.vue";
+
+
 </script>
 <style scoped>
 .container {
@@ -362,6 +359,7 @@ import LineChartVue from "@/components/chart/LineChart.vue";
   width: 100%;
   height: auto;
 }
+
 
 .header-section {
   width: 100%;
@@ -707,8 +705,8 @@ import LineChartVue from "@/components/chart/LineChart.vue";
   align-items: flex-start;
   gap: 4px;
   border-radius: 12px;
-  border: 1px solid #dbe2e8;
-  background: #fff;
+  border: 1px solid #DBE2E8;
+  background: #FFF;
 }
 
 .btn {
@@ -728,8 +726,8 @@ import LineChartVue from "@/components/chart/LineChart.vue";
 }
 
 .btn-active {
-  background: #1c1f27;
-  color: #fff !important;
+  background: #1C1F27;
+  color: #FFF !important;
 }
 
 .customer-table {
@@ -745,7 +743,8 @@ table {
 
 thead tr {
   width: 100%;
-  background-color: #f9fafb;
+  background-color: #F9FAFB;
+
 }
 
 th {
@@ -777,7 +776,8 @@ tbody tr {
   background-color: #fff;
 }
 
-@media screen and (min-width: 1560px) {
+
+@media screen and (min-width:1560px) {
   .wrapper {
     max-width: 1440px;
     margin: 0 auto;
@@ -798,19 +798,19 @@ tbody tr {
   }
 }
 
-@media screen and (max-width: 1430px) {
+@media screen and (max-width:1430px) {
   .average {
-    margin-top: 350px;
+    margin-top: 350px
   }
 }
 
-@media screen and (max-width: 1230px) {
+@media screen and (max-width:1230px) {
   .bottom {
     flex-wrap: wrap;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width:1024px) {
   .dashboard-cards {
     justify-content: center;
   }
@@ -822,9 +822,10 @@ tbody tr {
   th:nth-child(4) .table-item {
     padding: 0;
   }
+
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width:800px) {
   .dashboard-cards {
     justify-content: space-between;
   }
@@ -850,17 +851,18 @@ tbody tr {
   }
 }
 
-@media screen and (max-width: 705px) {
+@media screen and (max-width:705px) {
   .average {
-    margin-top: 800px;
+    margin-top: 800px
   }
 
   .wrap {
     width: 100%;
   }
+
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width:600px) {
   .arrow-left {
     margin-left: 5px;
     margin-bottom: 30px;
@@ -881,7 +883,7 @@ tbody tr {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width:500px) {
   .show {
     padding: 7px;
   }
@@ -895,11 +897,11 @@ tbody tr {
   }
 
   .hero-text p {
-    width: 90%;
+    width: 90%
   }
 
   .coast {
-    height: 590px;
+    height: 590px
   }
 
   .wrapper {
@@ -907,9 +909,9 @@ tbody tr {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width:425px) {
   .hero-text h1 {
-    font-size: 38px;
+    font-size: 38px
   }
 
   .item {
@@ -922,7 +924,7 @@ tbody tr {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width:375px) {
   .header-section .wrapper {
     width: 90%;
   }
@@ -940,25 +942,27 @@ tbody tr {
   }
 
   th:nth-child(1) .table-item {
-    padding: 10px;
+    padding: 10px
   }
 
   th:nth-child(2) .table-item {
-    padding: 10px;
+    padding: 10px
   }
+
 
   .customer {
     border-radius: 0;
   }
 
   .nav-bar {
-    width: 80%;
+    width: 80%
   }
+
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width:320px) {
   .hero-text h1 {
-    font-size: 35px;
+    font-size: 35px
   }
 
   .show {
@@ -994,7 +998,8 @@ tbody tr {
   }
 
   .customer-header {
-    margin: 13px 5px;
+    margin: 13px 5px
   }
+
 }
 </style>
