@@ -234,6 +234,10 @@ const chartData: ChartData = {
   overflow: visible !important;
 }
 
+.apexcharts-xaxistooltip.apexcharts-xaxistooltip-bottom.apexcharts-theme-light {
+  display: none;
+}
+
 .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
   background: #192038 !important;
   border: 0 !important;
