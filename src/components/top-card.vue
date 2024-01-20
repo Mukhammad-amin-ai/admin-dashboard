@@ -14,10 +14,7 @@
         <td>
             <div class="bottom-item">
                 <div class="percentage">
-                    <img src="../assets/svg/Frame.svg" alt="Frame">
-                    <div class="fillBox">
-
-                    </div>
+                    <semiReg :percent="percentProp"/>
                 </div>
                 <div class="percent-text">
                     <h5>{{ percent }}</h5>
@@ -41,6 +38,8 @@
     </tr>
 </template>
 <script lang="ts" setup>
+import semiReg from '../components/chart/semiRadialBar'
+
 
 defineProps({
     icon: String,
@@ -48,7 +47,8 @@ defineProps({
     date: String,
     percent: String,
     money: String,
-    margin: String
+    margin: String,
+    percentProp:Number,
 })
 
 </script>
