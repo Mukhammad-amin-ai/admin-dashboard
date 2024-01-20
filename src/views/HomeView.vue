@@ -178,7 +178,9 @@
                 </div>
               </div>
             </div>
-            <div class="chart"></div>
+            <div class="chart">
+              <ColumnChart />
+            </div>
           </div>
         </div>
         <div class="top-best">
@@ -355,6 +357,7 @@ import DashboardCards from "@/components/dashboardCard.vue";
 import topCard from "@/components/top-card.vue";
 import circleReuse from "../assets/svg/circle-reuse.vue";
 import LineChartVue from "@/components/chart/LineChart.vue";
+import ColumnChart from "@/components/chart/ColumnChart.vue";
 </script>
 <style scoped>
 .container {
