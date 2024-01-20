@@ -1,5 +1,6 @@
 <template >
-    <div role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" :style="{
+    <div role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"
+        :style="{
         '--value': percent,
         '--primary': percent < 50 ? '#FF6565' : (percent < 80 ? '#FFCD02' : '#20E301'),
     }">
