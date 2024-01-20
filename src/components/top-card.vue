@@ -14,10 +14,7 @@
         <td>
             <div class="bottom-item">
                 <div class="percentage">
-                    <img src="../assets/svg/Frame.svg" alt="Frame">
-                    <div class="fillBox">
-
-                    </div>
+                    <semiChart :percent='percentProp' />
                 </div>
                 <div class="percent-text">
                     <h5>{{ percent }}</h5>
@@ -41,6 +38,8 @@
     </tr>
 </template>
 <script lang="ts" setup>
+import semiChart from '../components/chart/semiRadialBar.vue'
+// const num = 50
 
 defineProps({
     icon: String,
@@ -48,7 +47,8 @@ defineProps({
     date: String,
     percent: String,
     money: String,
-    margin: String
+    margin: String,
+    percentProp:Number,
 })
 
 </script>
@@ -225,31 +225,4 @@ td:nth-child(4) .bottom-item h5 {
         font-size: 9px;
     }
 }
-
-/* @media screen and (max-width:320px) {
-
-    td:nth-child(2) .bottom-item .percent-text h5 {
-        font-size: 10px;
-    }
-
-    td:nth-child(3) .bottom-item .margin {
-        padding: 0;
-        background-color: transparent;
-    }
-
-    td:nth-child(3) .bottom-item .margin h5 {
-        font-size: 10px;
-    }
-
-    td:nth-child(4) .bottom-item h5 {
-        font-size: 10px;
-
-    }
-
-    .text p {
-        font-size: 9px;
-    }
-
-} */
-
 </style>
