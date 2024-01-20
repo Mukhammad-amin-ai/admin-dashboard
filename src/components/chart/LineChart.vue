@@ -11,20 +11,10 @@
 
 <script lang="ts" setup>
 import VueApexCharts from "vue3-apexcharts";
-
+import { onMounted, ref } from "vue";
 interface SeriesData {
   name: string;
-  data: number[];
-  markers: {
-    size: number[];
-    shape: string;
-    colors: string;
-    hover: {
-      size: number;
-      sizeOffset: number;
-    };
-    strokeColors: string;
-  };
+  data: (number | null)[];
 }
 
 interface ChartOptions {
@@ -44,9 +34,6 @@ interface ChartOptions {
     };
   };
   colors: string[];
-  dataLabels: {
-    enabled: boolean;
-  };
   stroke: {
     width: number[];
     curve: string;
@@ -65,13 +52,29 @@ interface ChartOptions {
   };
   markers: {
     size: number[];
-    shape: string;
-    colors: string;
     hover: {
       size: number;
       sizeOffset: number;
     };
+    shape: string;
+    colors: string;
     strokeColors: string;
+  };
+  plotOptions: {
+    line: {
+      markers: {
+        size: number;
+        hover: {
+          size: number;
+        };
+      };
+    };
+  };
+  dataLabels: {
+    enabled: boolean;
+    style: {
+      colors: string[]; // Match series colors
+    };
   };
   xaxis: {
     categories: string[];
@@ -99,36 +102,17 @@ interface ChartData {
   series: SeriesData[];
   chartOptions: ChartOptions;
 }
+const isVisibleMarkers = ref(false);
 
 const chartData: ChartData = {
   series: [
     {
       name: "Revenue",
       data: [28, 20, 33, 36, 22, 32, 23, 34, 27, 25, 29],
-      markers: {
-        size: [6],
-        hover: {
-          size: 6,
-          sizeOffset: 3,
-        },
-        shape: "circle",
-        colors: "white",
-        strokeColors: "#92BAFB",
-      },
     },
     {
       name: "Cost",
-      data: [28, 29, 13, 30, 32, 22, 33, 31, 39, 29, 19],
-      markers: {
-        size: [0],
-        hover: {
-          size: 6,
-          sizeOffset: 3,
-        },
-        shape: "circle",
-        colors: "white",
-        strokeColors: "#92BAFB",
-      },
+      data: [22, 29, 13, 30, 32, 22, 33, 31, 39, 29, 19],
     },
   ],
   chartOptions: {
@@ -148,9 +132,6 @@ const chartData: ChartData = {
       },
     },
     colors: ["#92BAFB", "#F29E61"],
-    dataLabels: {
-      enabled: false,
-    },
     stroke: {
       width: [3, 3, 1],
       curve: "smooth",
@@ -176,6 +157,22 @@ const chartData: ChartData = {
       shape: "circle",
       colors: "white",
       strokeColors: "#92BAFB",
+    },
+    plotOptions: {
+      line: {
+        markers: {
+          size: 6,
+          hover: {
+            size: 6,
+          },
+        },
+      },
+    },
+    dataLabels: {
+      enabled: false,
+      style: {
+        colors: ["#92BAFB", "#F29E61"], // Match series colors
+      },
     },
     xaxis: {
       categories: [
@@ -213,4 +210,28 @@ const chartData: ChartData = {
 };
 </script>
 
-<style scoped></style>
+<style>
+.apexcharts-tooltip {
+  background: #192038 !important;
+  color: white !important;
+}
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+  background: #192038 !important;
+  border: 0 !important;
+  display: none;
+}
+.apexcharts-tooltip-text-y-label {
+  fill: var(#92969f) !important; 
+
+  /* C1/Medium */
+  font-family: Euclid-Regular , sans-serif !important; 
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 133.333% */
+}
+.apexcharts-tooltip-text-y-value {
+  font-family: Euclid-Regular , sans-serif !important; 
+
+}
+</style>
