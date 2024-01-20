@@ -706,20 +706,83 @@ tbody tr {
   .dashboard-cards {
     justify-content: center;
   }
+
   th:nth-child(3) .table-item {
     padding: 0;
   }
+
   th:nth-child(4) .table-item {
     padding: 0;
   }
 
 }
 
-@media screen and (max-width:768px) {}
+@media screen and (max-width:800px) {
+  .dashboard-cards {
+    justify-content: space-between;
+  }
+
+  .average {
+    flex-direction: column;
+  }
+
+  .coast {
+    width: 100%;
+  }
+
+  .payout {
+    width: 100%;
+  }
+
+  .top-best {
+    flex-direction: column;
+  }
+
+  .customer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:705px) {
+  .average {
+    margin-top: 800px
+  }
+
+  .wrap {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width:600px) {
+  .arrow-left {
+    margin-left: 5px;
+    margin-bottom: 30px;
+  }
+
+  .nav-bar {
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wrapper {
+    width: 88%;
+  }
+
+  .dashboard-wrapper {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .hero-text p {
+    width: 90%
+  }
+}
 
 @media screen and (max-width:425px) {}
 
 @media screen and (max-width:375px) {}
 
-@media screen and (max-width:320px) {}
-</style>
+@media screen and (max-width:320px) {}</style>
