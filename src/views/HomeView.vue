@@ -48,13 +48,13 @@
     <div class="main-section">
       <div class="dashboard-wrapper">
         <div class="dashboard-cards">
-          <DashboardCards topText="Customers" box1text="Active" box2text="Inactive" box3text="Suspended" box1="20,6K"
+          <DashboardCards img="/icons/Customer-Icon.svg" topText="Customers" box1text="Active" box2text="Inactive" box3text="Suspended" box1="20,6K"
             box2="1,6K" box3="1,2K" percent="16,5%" grow="+1,293"/>
-          <DashboardCards topText="Companies" box1text="Total" box2text="Parent" box3text="Child" box1="15,000"
+          <DashboardCards img="/icons/Company-Icon.svg" topText="Companies" box1text="Total" box2text="Parent" box3text="Child" box1="15,000"
             box2="13,000" box3="12,000" percent="21,5%" grow="+1,293" />
-          <DashboardCards topText="Users" box1text="Total" box2text="Active" box3text="Inactive" box1="12,099" box2="12K"
+          <DashboardCards img="/icons/User-Icon.svg" topText="Users" box1text="Total" box2text="Active" box3text="Inactive" box1="12,099" box2="12K"
             box3="99" percent="6,5%" grow="+1,293" />
-          <DashboardCards topText="Loads Sold" box1text="Total" box2text="W/Platform" box3text="Outside P." box1="64,200"
+          <DashboardCards img="/icons/Box-Icon.svg" topText="Loads Sold" box1text="Total" box2text="W/Platform" box3text="Outside P." box1="64,200"
             box2="50K" box3="14,200" percent="28,5%" grow="+1,293" />
         </div>
       </div>

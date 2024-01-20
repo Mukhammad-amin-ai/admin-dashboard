@@ -4,7 +4,7 @@
             <div class="card-top">
                 <div class="left">
                     <div class="icon">
-                        <img src="../assets/icons/Customer-Icon.svg" alt="Customer">
+                        <img :src="img" alt="Customer">
                     </div>
                     <h4>{{ topText }}</h4>
                 </div>
@@ -44,6 +44,7 @@ defineProps({
     box3: String,
     percent: String,
     grow: String,
+    img:String
 })
 
 </script>
