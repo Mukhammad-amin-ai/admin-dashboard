@@ -75,14 +75,6 @@ td:nth-child(2) .bottom-item .percentage img {
     z-index: 99;
 }
 
-/* td:nth-child(2) .bottom-item .percentage .fillBox {
-    width: 60px;
-    height: 30px;
-    z-index: 1;
-    background: rgb(255, 101, 101);
-    background: linear-gradient(60deg, rgba(255, 101, 101, 1) 30%, rgba(255, 205, 2, 1) 70%, rgba(32, 227, 1, 1) 100%);
-} */
-
 td:nth-child(2) .bottom-item .percent-text h5 {
     font-size: 14px;
     font-style: normal;
@@ -156,5 +148,15 @@ td:nth-child(4) .bottom-item h5 {
     font-style: normal;
     color: #92969F;
     font-family: Euclid-Regular;
+}
+
+@media screen and (max-width:1024px) {
+    td:nth-child(3) .bottom-item {
+        padding: 0;
+    }
+    td:nth-child(4) .bottom-item {
+        padding: 0;
+    }
+
 }
 </style>

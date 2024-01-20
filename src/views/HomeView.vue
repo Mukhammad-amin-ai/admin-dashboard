@@ -248,9 +248,10 @@ import LineChartVue from "@/components/chart/LineChart.vue";
 <style scoped>
 .container {
   width: 100vw;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
+
 
 .header-section {
   width: 100%;
@@ -666,4 +667,59 @@ tbody tr {
   width: 100%;
   background-color: #fff;
 }
+
+
+@media screen and (min-width:1560px) {
+  .wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .dashboard-cards {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .navigation {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .main-section {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width:1430px) {
+  .average {
+    margin-top: 350px
+  }
+}
+
+@media screen and (max-width:1230px) {
+  .bottom {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .dashboard-cards {
+    justify-content: center;
+  }
+  th:nth-child(3) .table-item {
+    padding: 0;
+  }
+  th:nth-child(4) .table-item {
+    padding: 0;
+  }
+
+}
+
+@media screen and (max-width:768px) {}
+
+@media screen and (max-width:425px) {}
+
+@media screen and (max-width:375px) {}
+
+@media screen and (max-width:320px) {}
 </style>
