@@ -3,11 +3,11 @@
     <div class="header-section">
       <div class="navigation">
         <button class="arrow-left">
-          <img src="../assets/icons/arrow-left.svg" alt="arrow-left">
+          <img src="../assets/icons/arrow-left.svg" alt="arrow-left" />
         </button>
         <div class="nav-bar">
           <div class="logo">
-            <img src="../assets/svg/logo.svg" alt="logo">
+            <img src="../assets/svg/logo.svg" alt="logo" />
           </div>
           <div class="config">
             <div class="show">
@@ -21,21 +21,28 @@
 
             <div class="docs">
               Export Data
-              <img src="../assets/icons/document-download.svg" alt="document-download">
+              <img
+                src="../assets/icons/document-download.svg"
+                alt="document-download"
+              />
             </div>
             <div class="search">
-              <img src="../assets/icons/search-normal.svg" alt="search-normal">
+              <img
+                src="../assets/icons/search-normal.svg"
+                alt="search-normal"
+              />
             </div>
           </div>
         </div>
       </div>
       <div class="wrapper">
-        <div class="breadcrumb">
-          Homepage / <span>Admin Panel</span>
-        </div>
+        <div class="breadcrumb">Homepage / <span>Admin Panel</span></div>
         <div class="hero-text">
           <h1>Hello, Farooq 👋🏻</h1>
-          <p>Lorem ipsum dolor sit amet consectetur. Purus in scelerisque ut felis sit et a proin nulla.</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Purus in scelerisque ut
+            felis sit et a proin nulla.
+          </p>
         </div>
         <div class="tab-bar">
           <div class="item active">General</div>
@@ -68,7 +75,7 @@
                 <div class="bottom">
                   <span>$102,838</span>
                   <div class="statistic">
-                    <img src="../assets/icons/decrease.svg" alt="decrease">
+                    <img src="../assets/icons/decrease.svg" alt="decrease" />
                     6,5%
                   </div>
                 </div>
@@ -83,15 +90,13 @@
                 <div class="bottom">
                   <span>$10,200</span> (20%)
                   <div class="statistic">
-                    <img src="../assets/icons/decrease.svg" alt="decrease">
+                    <img src="../assets/icons/decrease.svg" alt="decrease" />
                     6,5%
                   </div>
                 </div>
               </div>
             </div>
-            <div class="chart">
-
-            </div>
+            <div class="chart"></div>
           </div>
           <div class="payout">
             <h3>Average Cost - Broker</h3>
@@ -106,7 +111,7 @@
                 <div class="bottom">
                   <span>$102,838</span>
                   <div class="statistic">
-                    <img src="../assets/icons/grow.svg" alt="grow">
+                    <img src="../assets/icons/grow.svg" alt="grow" />
                     6,5%
                   </div>
                 </div>
@@ -121,25 +126,21 @@
                 <div class="bottom">
                   <span>$10,200</span> (20%)
                   <div class="statistic">
-                    <img src="../assets/icons/grow.svg" alt="grow">
+                    <img src="../assets/icons/grow.svg" alt="grow" />
                     6,5%
                   </div>
                 </div>
               </div>
             </div>
             <div class="chart">
-
+              <LineChartVue />
             </div>
           </div>
         </div>
 
         <div class="top-best">
-          <div class="customer">
-
-          </div>
-          <div class="customer">
-
-          </div>
+          <div class="customer"></div>
+          <div class="customer"></div>
         </div>
       </div>
     </div>
@@ -147,9 +148,10 @@
 </template>
 
 <script lang="ts" setup>
-import DashboardCards from '../components/dashboardCard.vue'
-import circleReuse from '../assets/svg/circle-reuse.vue'
+import DashboardCards from "@/components/dashboardCard.vue";
+import circleReuse from "@/assets/svg/circle-reuse.vue";
 
+import LineChartVue from "@/components/chart/LineChart.vue";
 </script>
 <style scoped>
 .container {
@@ -196,7 +198,6 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
 .logo {
   width: auto;
   height: auto;
-
 }
 
 .config {
@@ -217,7 +218,7 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   flex-shrink: 0;
   border-radius: 8px;
   border: 1px solid rgba(105, 110, 130, 1);
-  color: #92969F;
+  color: #92969f;
   font-size: 12px;
   font-family: Euclid-Medium;
 }
@@ -225,7 +226,7 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
 .show select {
   border: none;
   background-color: transparent;
-  color: #FFF;
+  color: #fff;
   font-size: 12px;
   font-family: Euclid-Medium;
 }
@@ -238,7 +239,6 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   color: #000;
 }
 
-
 .docs {
   cursor: pointer;
   display: inline-flex;
@@ -248,7 +248,7 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   gap: 8px;
   border-radius: 8.183px;
   border: 1.023px solid rgba(105, 110, 130, 1);
-  color: #FFF;
+  color: #fff;
   font-size: 12px;
   font-family: Euclid-Medium;
   line-height: 16px;
@@ -271,7 +271,7 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
 
 .breadcrumb {
   margin-top: 47px;
-  color: #696E82;
+  color: #696e82;
   font-size: 14px;
   font-family: Euclid-Medium;
 }
@@ -293,7 +293,7 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
 
 .hero-text p {
   width: 427px;
-  color: #ABB0C7;
+  color: #abb0c7;
   font-size: 14px;
   font-family: Euclid-Regular;
   font-style: normal;
@@ -307,8 +307,8 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   align-items: flex-start;
   gap: 8px;
   border-radius: 12px;
-  border: 1px solid #696E82;
-  background: #161A2A;
+  border: 1px solid #696e82;
+  background: #161a2a;
 }
 
 .item {
@@ -325,13 +325,13 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
 }
 
 .active {
-  background: #4478FF;
+  background: #4478ff;
 }
 
 .main-section {
   width: 100%;
   height: auto;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   display: flex;
   justify-content: center;
 }
@@ -371,12 +371,12 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   border-radius: 12px;
   border-radius: 12px;
   border: 1px solid #fff;
-  background: #FFF;
+  background: #fff;
   padding: 24px 34px 0 34px;
 }
 
 .coast h3 {
-  color: #2B2E3A;
+  color: #2b2e3a;
   font-family: Euclid-SemiBold;
   font-size: 16px;
   font-style: normal;
@@ -402,12 +402,11 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #92969F;
+  color: #92969f;
   font-family: Euclid-Medium;
   font-size: 12px;
   font-style: normal;
 }
-
 
 .average-item .top .circle {
   width: 12px;
@@ -422,17 +421,15 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   align-items: center;
   gap: 4px;
   font-size: 16px;
-  color: #92969F;
+  color: #92969f;
   font-family: Euclid-Medium;
-
 }
 
 .average-item .bottom span {
-  color: #2B2E3A;
+  color: #2b2e3a;
   font-size: 24px;
   font-style: normal;
   font-family: Euclid-Medium;
-
 }
 
 .average-item .bottom .statistic {
@@ -440,7 +437,7 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   align-items: center;
   font-size: 14px;
   font-style: normal;
-  color: #60BF98;
+  color: #60bf98;
   font-family: Euclid-SemiBold;
 }
 
@@ -455,17 +452,16 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   height: 530px;
   border-radius: 12px;
   border: 1px solid #fff;
-  background: #FFF;
+  background: #fff;
   padding: 24px 34px 0 34px;
 }
 
 .payout h3 {
-  color: #2B2E3A;
+  color: #2b2e3a;
   font-family: Euclid-SemiBold;
   font-size: 16px;
   font-style: normal;
 }
-
 
 .top-best {
   width: 100%;
@@ -477,12 +473,11 @@ import circleReuse from '../assets/svg/circle-reuse.vue'
   padding-bottom: 55px;
 }
 
-
 .customer {
   width: 50%;
   height: 476px;
   border-radius: 16px;
-  border: 1px solid #EAECF0;
-  background: #FFF;
+  border: 1px solid #eaecf0;
+  background: #fff;
 }
 </style>
