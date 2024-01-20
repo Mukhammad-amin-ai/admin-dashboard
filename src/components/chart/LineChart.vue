@@ -55,18 +55,22 @@ interface ChartOptions {
     hover: {
       size: number;
       sizeOffset: number;
+      colors: string[];
     };
+    strokeColors: string[];
     shape: string;
-    colors: string;
-    strokeColors: string;
+    colors: string[];
   };
-  plotOptions: {
-    line: {
-      markers: {
-        size: number;
-        hover: {
-          size: number;
-        };
+  tooltip: {
+    enabled: boolean;
+    theme: string;
+    // shared: boolean,
+    // position: string,
+    followCursor: boolean;
+    placement: "top";
+    tooltip: {
+      x: {
+        show: boolean;
       };
     };
   };
@@ -148,24 +152,29 @@ const chartData: ChartData = {
       },
     },
     markers: {
-      size: [6],
+      size: [6, 0],
+      shape: "circle",
+      colors: ["white", "white"], // Default color for both markers
+      strokeColors: ["#92BAFB", "#92BAFB"], // Adjust strokeColors accordingly
       hover: {
         size: 6,
         sizeOffset: 3,
+        colors: ["#F29E61", "#92BAFB"], // Hover colors for both markers
       },
-      shape: "circle",
-      colors: "white",
-      strokeColors: "#92BAFB",
     },
-    plotOptions: {
-      line: {
-        markers: {
-          size: 6,
-          hover: {
-            size: 6,
-          },
+
+    tooltip: {
+      enabled: true,
+      // shared: false,
+      theme: "light",
+      tooltip: {
+        x: {
+          show: true,
         },
       },
+      // position: 'top',
+      followCursor: true,
+      placement: "top",
     },
     dataLabels: {
       enabled: false,
@@ -217,6 +226,7 @@ const chartData: ChartData = {
   background-position: center bottom; /* Adjust the position as needed */
   color: white !important;
   overflow: visible !important;
+  /* transform: translate(50% , -150%); */
 }
 .apexcharts-tooltip::after {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='9' viewBox='0 0 17 9' fill='none'%3E%3Cpath d='M8.5 9L16.7272 0H0.272758L8.5 9Z' fill='%23192038'/%3E%3C/svg%3E");
