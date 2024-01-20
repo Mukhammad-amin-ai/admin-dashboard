@@ -54,7 +54,19 @@
         </div>
       </div>
       <div class="wrapper">
+        <div class="average">
+          <div class="coast"></div>
+          <div class="payout"></div>
+        </div>
 
+        <div class="top-best">
+          <div class="customer">
+
+          </div>
+          <div class="customer">
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -242,6 +254,14 @@ import DashboardCards from '../components/dashboard-card.vue'
   background: #4478FF;
 }
 
+.main-section {
+  width: 100%;
+  height: auto;
+  background-color: #F8F8F8;
+  display: flex;
+  justify-content: center;
+}
+
 .dashboard-wrapper {
   width: 100%;
   height: auto;
@@ -252,7 +272,7 @@ import DashboardCards from '../components/dashboard-card.vue'
 }
 
 .dashboard-cards {
-  width: 93%;
+  width: 94%;
   height: auto;
   display: flex;
   justify-content: space-between;
@@ -262,13 +282,51 @@ import DashboardCards from '../components/dashboard-card.vue'
   gap: 20px;
 }
 
-
-.main-section {
+.average {
   width: 100%;
-  height: 1758px;
-  background-color: #F8F8F8;
+  height: auto;
+  margin-top: 116px;
   display: flex;
-  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
 
+.coast {
+  width: 60%;
+  height: 530px;
+  border-radius: 12px;
+  border-radius: 12px;
+  border: 1px solid #fff;
+  background: #FFF;
+}
+
+.payout {
+  width: 40%;
+  height: 530px;
+  border-radius: 12px;
+  border: 1px solid #fff;
+  background: #FFF;
+}
+
+
+
+
+.top-best {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 55px;
+}
+
+
+.customer {
+  width: 50%;
+  height: 476px;
+  border-radius: 16px;
+  border: 1px solid #EAECF0;
+  background: #FFF;
 }
 </style>
