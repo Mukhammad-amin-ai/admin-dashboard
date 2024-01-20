@@ -158,6 +158,9 @@
                     <th>
                       <div class="table-item">
                         Performance
+                        <span>
+                          <img src="../assets/icons/arrow-up.svg" alt="arrow" />
+                        </span>
                       </div>
                     </th>
                     <th>
@@ -204,6 +207,9 @@
                     <th>
                       <div class="table-item">
                         Performance
+                        <span>
+                          <img src="../assets/icons/arrow-up.svg" alt="arrow" />
+                        </span>
                       </div>
                     </th>
                     <th>
@@ -776,13 +782,122 @@ tbody tr {
 }
 
 @media screen and (max-width:500px) {
+  .show {
+    padding: 7px;
+  }
+
+  .docs {
+    padding: 7px;
+  }
+
+  .search {
+    padding: 5px;
+  }
+
   .hero-text p {
     width: 90%
   }
+
+  .coast {
+    height: 590px
+  }
 }
 
-@media screen and (max-width:425px) {}
+@media screen and (max-width:425px) {
+  .hero-text h1 {
+    font-size: 38px
+  }
 
-@media screen and (max-width:375px) {}
+  .item {
+    font-size: 10px;
+  }
 
-@media screen and (max-width:320px) {}</style>
+  .config {
+    width: auto;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .header-section .wrapper {
+    width: 90%;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
+
+  .coast {
+    border-radius: 0;
+  }
+
+  .payout {
+    border-radius: 0;
+  }
+
+  th {
+    font-size: 10px;
+  }
+
+  th:nth-child(1) .table-item {
+    padding: 10px
+  }
+
+  th:nth-child(2) .table-item {
+    padding: 10px
+  }
+
+
+  .customer {
+    border-radius: 0;
+  }
+
+  .nav-bar {
+    width: 80%
+  }
+
+}
+
+@media screen and (max-width:320px) {
+  .hero-text h1 {
+    font-size: 35px
+  }
+
+  .show {
+    font-size: 10px;
+  }
+
+  .show select {
+    font-size: 10px;
+  }
+
+  .docs {
+    font-size: 10px;
+  }
+
+  .item {
+    font-size: 9px;
+  }
+
+  .coast h3 {
+    font-size: 14px;
+  }
+
+  .average-item .top {
+    font-size: 9px;
+  }
+
+  .average-item .bottom span {
+    font-size: 20px;
+  }
+
+  .average-item .bottom .statistic {
+    font-size: 12px;
+  }
+
+  .customer-header {
+    margin: 13px 5px
+  }
+
+}
+</style>

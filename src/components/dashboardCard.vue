@@ -44,7 +44,7 @@ defineProps({
     box3: String,
     percent: String,
     grow: String,
-    img:String
+    img: String
 })
 
 </script>
@@ -142,11 +142,21 @@ defineProps({
 }
 
 @media screen and (max-width:705px) {
-  .stat {
-    justify-content: end;
-  }
+    .stat {
+        justify-content: end;
+    }
 }
 
+@media screen and (max-width:320px) {
+    .stat {
+        font-size: 12px
+    }
 
-
+    .box h4 {
+        font-size: 20px;
+    }
+    .box p{
+        font-size: 12px;
+    }
+}
 </style>

@@ -189,4 +189,45 @@ td:nth-child(4) .bottom-item h5 {
     }
 
 }
+
+@media screen and (max-width:375px) {
+    td:nth-child(1) .bottom-item {
+        padding: 5px;
+    }
+
+    td:nth-child(2) .bottom-item {
+        padding: 0;
+    }
+
+    .bottom-item {
+        gap: 5px
+    }
+
+}
+
+@media screen and (max-width:320px) {
+
+    td:nth-child(2) .bottom-item .percent-text h5 {
+        font-size: 10px;
+    }
+
+    td:nth-child(3) .bottom-item .margin {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    td:nth-child(3) .bottom-item .margin h5 {
+        font-size: 10px;
+    }
+
+    td:nth-child(4) .bottom-item h5 {
+        font-size: 10px;
+
+    }
+
+    .text p {
+        font-size: 9px;
+    }
+
+}
 </style>
