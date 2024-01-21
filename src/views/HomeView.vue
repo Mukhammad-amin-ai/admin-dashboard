@@ -216,7 +216,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <topCard icon="/img/Avatar.png" percentProp="14" name="Yahoo!" date="01/01/2020" percent="14%"
+                  <topCard icon="/img/Avatar.png" percentProp="15" name="Yahoo!" date="01/01/2020" percent="14%"
                     money="300" margin="15" />
                   <topCard icon="/img/Avatar2.png" percentProp="15" name="Adidas" date="01/01/2020" percent="15%"
                     money="300" margin="15" />
