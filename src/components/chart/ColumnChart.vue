@@ -22,11 +22,11 @@ const colors = ["#92BAFB", "#4478FF"]; // Colors for Revenue and Margin
 const series: ChartData[] = [
   {
     name: "Revenue",
-    data: [10, 12, 6, 14, 8, 10],
+    data: [21, 22, 10, 28, 16, 21],
   },
   {
     name: "Margin",
-    data: [21, 22, 10, 28, 16, 21],
+    data: [10, 12, 6, 14, 8, 10],
   },
 ];
 
@@ -43,8 +43,10 @@ const chartOptions = {
   plotOptions: {
     bar: {
       columnWidth: "32px",
-      distributed: true,
       borderRadius: 10,
+      dataLabels: {
+        position: "top",
+      },
     },
   },
   dataLabels: {
