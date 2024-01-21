@@ -122,7 +122,7 @@
                   <span> ${{ average_cost_broker.average_revenue }}</span>
                   <div class="statistic">
                     <img src="../assets/icons/decrease.svg" alt="decrease" />
-                    6,5%
+                    {{ average_cost_broker.increase_average_revenue }} %
                   </div>
                 </div>
               </div>
@@ -137,7 +137,7 @@
                   <span>${{ average_cost_broker.average_cost }}</span>
                   <div class="statistic">
                     <img src="../assets/icons/decrease.svg" alt="decrease" />
-                    6,5%
+                    {{average_cost_broker.increase_average_cost}} % 
                   </div>
                 </div>
               </div>
@@ -359,12 +359,12 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
+import axios from "axios";
 import DashboardCards from "@/components/dashboardCard.vue";
 import topCard from "@/components/top-card.vue";
 import circleReuse from "../assets/svg/circle-reuse.vue";
 import LineChartVue from "@/components/chart/LineChart.vue";
 import ColumnChart from "@/components/chart/ColumnChart.vue";
-import axios from "axios";
 interface AverageCostBroker {
   average_revenue: number;
   average_cost: number;
