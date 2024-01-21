@@ -38,7 +38,7 @@
     </tr>
 </template>
 <script lang="ts" setup>
-import semiReg from '../components/chart/semiRadialBar'
+import semiReg from '../components/chart/semiRadialBar.vue'
 
 
 defineProps({

@@ -64,8 +64,6 @@ interface ChartOptions {
   tooltip: {
     enabled: boolean;
     theme: string;
-    // shared: boolean,
-    // position: string,
     followCursor: boolean;
     placement: "top";
     tooltip: {
@@ -77,7 +75,7 @@ interface ChartOptions {
   dataLabels: {
     enabled: boolean;
     style: {
-      colors: string[]; // Match series colors
+      colors: string[]; 
     };
   };
   xaxis: {
@@ -154,32 +152,30 @@ const chartData: ChartData = {
     markers: {
       size: [6, 0],
       shape: "circle",
-      colors: ["white", "white"], // Default color for both markers
-      strokeColors: ["#92BAFB", "#92BAFB"], // Adjust strokeColors accordingly
+      colors: ["white", "white"],
+      strokeColors: ["#92BAFB", "#92BAFB"],
       hover: {
         size: 6,
         sizeOffset: 3,
-        colors: ["#F29E61", "#92BAFB"], // Hover colors for both markers
+        colors: ["#F29E61", "#92BAFB"], 
       },
     },
 
     tooltip: {
       enabled: true,
-      // shared: false,
       theme: "light",
       tooltip: {
         x: {
           show: true,
         },
       },
-      // position: 'top',
       followCursor: true,
       placement: "top",
     },
     dataLabels: {
       enabled: false,
       style: {
-        colors: ["#92BAFB", "#F29E61"], // Match series colors
+        colors: ["#92BAFB", "#F29E61"], 
       },
     },
     xaxis: {
@@ -223,12 +219,13 @@ const chartData: ChartData = {
 .apexcharts-tooltip {
   background: #192038 !important;
   color: white !important;
-  background-size: 17px 9px; /* Set the size based on your SVG dimensions */
-  background-position: center bottom; /* Adjust the position as needed */
+  background-size: 17px 9px; 
+  background-position: center bottom;
   color: white !important;
   overflow: visible !important;
-  /* transform: translate(50% , -150%); */
+  
 }
+
 /* .apexcharts-tooltip::after {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='9' viewBox='0 0 17 9' fill='none'%3E%3Cpath d='M8.5 9L16.7272 0H0.272758L8.5 9Z' fill='%23192038'/%3E%3C/svg%3E");
   opacity: 1;
@@ -254,16 +251,16 @@ const chartData: ChartData = {
   border: 0 !important;
   display: none;
 }
+
 .apexcharts-tooltip-text-y-label {
   fill: var(#92969f) !important;
-
-  /* C1/Medium */
   font-family: Euclid-Regular, sans-serif !important;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px; /* 133.333% */
+  line-height: 16px;
 }
+
 .apexcharts-tooltip-text-y-value {
   font-family: Euclid-Regular, sans-serif !important;
 }
