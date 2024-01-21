@@ -17,7 +17,7 @@ interface ChartData {
   name: string;
 }
 
-const colors = ["#92BAFB", "#4478FF"]; // Colors for Revenue and Margin
+const colors = ["#4478FF", "#92BAFB"]; // Colors for Revenue and Margin
 
 const series: ChartData[] = [
   {

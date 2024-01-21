@@ -229,7 +229,7 @@ const chartData: ChartData = {
   overflow: visible !important;
   /* transform: translate(50% , -150%); */
 }
-.apexcharts-tooltip::after {
+/* .apexcharts-tooltip::after {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='9' viewBox='0 0 17 9' fill='none'%3E%3Cpath d='M8.5 9L16.7272 0H0.272758L8.5 9Z' fill='%23192038'/%3E%3C/svg%3E");
   opacity: 1;
   background: transparent !important;
@@ -243,7 +243,7 @@ const chartData: ChartData = {
   position: absolute;
   bottom: -40px !important;
   overflow: visible !important;
-}
+} */
 
 .apexcharts-xaxistooltip.apexcharts-xaxistooltip-bottom.apexcharts-theme-light {
   display: none;
