@@ -38,11 +38,20 @@ const chartOptions = {
     toolbar: {
       show: false,
     },
+    
   },
+  grid: {
+      borderColor: "transparent",
+      row: {
+        colors: ["#f3f3f3", "transparent"],
+        opacity: 0,
+      },
+    },
   colors: colors,
   plotOptions: {
     bar: {
-      columnWidth: "32px",
+      columnWidth: "45%", // Adjust the width as needed
+      horizontal: false, // Set to false for vertical bars
       borderRadius: 10,
       dataLabels: {
         position: "top",
@@ -77,3 +86,9 @@ const chartOptions = {
   },
 };
 </script>
+<style>
+.apexcharts-bar-area {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+</style>
