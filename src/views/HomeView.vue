@@ -21,16 +21,10 @@
 
             <div class="docs">
               Export Data
-              <img
-                src="../assets/icons/document-download.svg"
-                alt="document-download"
-              />
+              <img src="../assets/icons/document-download.svg" alt="document-download" />
             </div>
             <div class="search">
-              <img
-                src="../assets/icons/search-normal.svg"
-                alt="search-normal"
-              />
+              <img src="../assets/icons/search-normal.svg" alt="search-normal" />
             </div>
           </div>
         </div>
@@ -54,54 +48,14 @@
     <div class="main-section">
       <div class="dashboard-wrapper">
         <div class="dashboard-cards">
-          <DashboardCards
-            img="/icons/Customer-Icon.svg"
-            topText="Customers"
-            box1text="Active"
-            box2text="Inactive"
-            box3text="Suspended"
-            box1="20,6K"
-            box2="1,6K"
-            box3="1,2K"
-            percent="16,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/Company-Icon.svg"
-            topText="Companies"
-            box1text="Total"
-            box2text="Parent"
-            box3text="Child"
-            box1="15,000"
-            box2="13,000"
-            box3="12,000"
-            percent="21,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/User-Icon.svg"
-            topText="Users"
-            box1text="Total"
-            box2text="Active"
-            box3text="Inactive"
-            box1="12,099"
-            box2="12K"
-            box3="99"
-            percent="6,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/Box-Icon.svg"
-            topText="Loads Sold"
-            box1text="Total"
-            box2text="W/Platform"
-            box3text="Outside P."
-            box1="64,200"
-            box2="50K"
-            box3="14,200"
-            percent="28,5%"
-            grow="+1,293"
-          />
+          <DashboardCards img="/icons/Customer-Icon.svg" topText="Customers" box1text="Active" box2text="Inactive"
+            box3text="Suspended" box1="20,6K" box2="1,6K" box3="1,2K" percent="16,5%" grow="+1,293" />
+          <DashboardCards img="/icons/Company-Icon.svg" topText="Companies" box1text="Total" box2text="Parent"
+            box3text="Child" box1="15,000" box2="13,000" box3="12,000" percent="21,5%" grow="+1,293" />
+          <DashboardCards img="/icons/User-Icon.svg" topText="Users" box1text="Total" box2text="Active"
+            box3text="Inactive" box1="12,099" box2="12K" box3="99" percent="6,5%" grow="+1,293" />
+          <DashboardCards img="/icons/Box-Icon.svg" topText="Loads Sold" box1text="Total" box2text="W/Platform"
+            box3text="Outside P." box1="64,200" box2="50K" box3="14,200" percent="28,5%" grow="+1,293" />
         </div>
       </div>
       <div class="wrapper">
@@ -216,51 +170,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <topCard
-                    icon="/img/Avatar.png"
-                    percentProp="92"
-                    name="Yahoo!"
-                    date="01/01/2020"
-                    percent="92%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar2.png"
-                    percentProp="90"
-                    name="Adidas"
-                    date="01/01/2020"
-                    percent="90%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar3.png"
-                    percentProp="88"
-                    name="Microsoft"
-                    date="01/01/2020"
-                    percent="88%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar4.png"
-                    percentProp="85"
-                    name="IKEA"
-                    date="01/01/2020"
-                    percent="85%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar5.png"
-                    percentProp="85"
-                    name="VTB"
-                    date="01/01/2020"
-                    percent="85%"
-                    money="300"
-                    margin="15"
-                  />
+                  <topCard icon="/img/Avatar.png" percentProp="92" name="Yahoo!" date="01/01/2020" percent="92%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar2.png" percentProp="90" name="Adidas" date="01/01/2020" percent="90%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar3.png" percentProp="88" name="Microsoft" date="01/01/2020" percent="88%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar4.png" percentProp="85" name="IKEA" date="01/01/2020" percent="85%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar5.png" percentProp="85" name="VTB" date="01/01/2020" percent="85%" money="300"
+                    margin="15" />
                 </tbody>
               </table>
             </div>
@@ -297,51 +216,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <topCard
-                    icon="/img/Avatar.png"
-                    percentProp="14"
-                    name="Yahoo!"
-                    date="01/01/2020"
-                    percent="14%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar2.png"
-                    percentProp="15"
-                    name="Adidas"
-                    date="01/01/2020"
-                    percent="15%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar3.png"
-                    percentProp="18"
-                    name="Microsoft"
-                    date="01/01/2020"
-                    percent="18%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar4.png"
-                    percentProp="20"
-                    name="IKEA"
-                    date="01/01/2020"
-                    percent="20%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar5.png"
-                    percentProp="23"
-                    name="VTB"
-                    date="01/01/2020"
-                    percent="23%"
-                    money="300"
-                    margin="15"
-                  />
+                  <topCard icon="/img/Avatar.png" percentProp="14" name="Yahoo!" date="01/01/2020" percent="14%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar2.png" percentProp="15" name="Adidas" date="01/01/2020" percent="15%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar3.png" percentProp="18" name="Microsoft" date="01/01/2020" percent="18%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar4.png" percentProp="20" name="IKEA" date="01/01/2020" percent="20%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar5.png" percentProp="23" name="VTB" date="01/01/2020" percent="23%" money="300"
+                    margin="15" />
                 </tbody>
               </table>
             </div>
@@ -579,7 +463,7 @@ import ColumnChart from "@/components/chart/ColumnChart.vue";
   border-radius: 12px;
   border: 1px solid #fff;
   background: #fff;
-  padding: 24px 34px 0 34px;
+  padding: 24px 24px 0 24px;
 }
 
 .coast h3 {
@@ -650,7 +534,7 @@ import ColumnChart from "@/components/chart/ColumnChart.vue";
 
 .chart {
   width: 100%;
-  height: 100px;
+  height: auto;
   margin-top: 40px;
 }
 
@@ -660,7 +544,7 @@ import ColumnChart from "@/components/chart/ColumnChart.vue";
   border-radius: 12px;
   border: 1px solid #fff;
   background: #fff;
-  padding: 24px 34px 0 34px;
+  padding: 24px 24px 0 24px;
 }
 
 .payout h3 {
@@ -818,6 +702,19 @@ tbody tr {
     justify-content: center;
   }
 
+  .coast {
+    height: 550px;
+  }
+
+  .payout {
+    height: 550px
+  }
+
+  .payout .chart {
+    margin-top: 15px
+  }
+
+
   th:nth-child(3) .table-item {
     padding: 0;
   }
@@ -838,10 +735,12 @@ tbody tr {
 
   .coast {
     width: 100%;
+    padding: 24px 15px 0 15px;
   }
 
   .payout {
     width: 100%;
+    padding: 24px 15px 0 15px;
   }
 
   .top-best {
@@ -902,7 +801,17 @@ tbody tr {
   }
 
   .coast {
-    height: 590px;
+    height: auto;
+    padding: 20px 10px 0 10px;
+  }
+
+  .payout {
+    height: auto;
+    padding: 20px 10px 0 10px;
+  }
+
+  .header-section .wrapper {
+    width: 88%;
   }
 
   .wrapper {
