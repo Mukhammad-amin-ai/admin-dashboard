@@ -13,7 +13,7 @@
 import VueApexCharts from "vue3-apexcharts";
 
 interface ChartData {
-  data: number[][];
+  data: number[];
   name: string;
 }
 
@@ -21,20 +21,18 @@ const colors = ["#92BAFB", "#4478FF"]; // Colors for Revenue and Margin
 
 const series: ChartData[] = [
   {
-    name: "",
-    data: [
-      [21, 30], // Aug
-      [22, 12], // Sep
-      [10, 6], // Oct
-      [28, 14], // Nov
-      [16, 8], // Dec
-      [21, 10], // Jan
-    ],
+    name: "Revenue",
+    data: [10, 12, 6, 14, 8, 10],
+  },
+  {
+    name: "Margin",
+    data: [21, 22, 10, 28, 16, 21],
   },
 ];
 
 const chartOptions = {
   chart: {
+    stacked: true,
     height: 350,
     type: "bar",
     toolbar: {
@@ -44,8 +42,8 @@ const chartOptions = {
   colors: colors,
   plotOptions: {
     bar: {
-      columnWidth: "100%",
-      distributed: true, // Set to true for separate columns
+      columnWidth: "32px",
+      distributed: true,
       borderRadius: 10,
     },
   },
@@ -61,7 +59,7 @@ const chartOptions = {
     categories: ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
     labels: {
       style: {
-        colors: "#444",
+        colors: "#909090",
         fontSize: "12px",
       },
     },
@@ -74,24 +72,6 @@ const chartOptions = {
   },
   tooltip: {
     enabled: true,
-    y: {
-      formatter: function (
-        value: number,
-        {
-          seriesIndex,
-          dataPointIndex,
-        }: { seriesIndex: number; dataPointIndex: number }
-      ) {
-    
-        const revenue = series[0].data[dataPointIndex][0];
-        const margin = series[0].data[dataPointIndex][1];
-        return `Revenue: ${revenue}<br/>Margin: ${margin}`;
-      },
-    },
   },
 };
 </script>
-
-<style>
-/* Add your styles here */
-</style>
