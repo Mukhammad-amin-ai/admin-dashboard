@@ -21,16 +21,10 @@
 
             <div class="docs">
               Export Data
-              <img
-                src="../assets/icons/document-download.svg"
-                alt="document-download"
-              />
+              <img src="../assets/icons/document-download.svg" alt="document-download" />
             </div>
             <div class="search">
-              <img
-                src="../assets/icons/search-normal.svg"
-                alt="search-normal"
-              />
+              <img src="../assets/icons/search-normal.svg" alt="search-normal" />
             </div>
           </div>
         </div>
@@ -51,61 +45,22 @@
         </div>
       </div>
     </div>
-
     <div class="main-section">
       <div class="dashboard-wrapper">
         <div class="dashboard-cards">
-          <DashboardCards
-            img="/icons/Customer-Icon.svg"
-            topText="Customers"
-            box1text="Active"
-            box2text="Inactive"
-            box3text="Suspended"
-            box1="20,6K"
-            box2="1,6K"
-            box3="1,2K"
-            percent="16,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/Company-Icon.svg"
-            topText="Companies"
-            box1text="Total"
-            box2text="Parent"
-            box3text="Child"
-            box1="15,000"
-            box2="13,000"
-            box3="12,000"
-            percent="21,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/User-Icon.svg"
-            topText="Users"
-            box1text="Total"
-            box2text="Active"
-            box3text="Inactive"
-            box1="12,099"
-            box2="12K"
-            box3="99"
-            percent="6,5%"
-            grow="+1,293"
-          />
-          <DashboardCards
-            img="/icons/Box-Icon.svg"
-            topText="Loads Sold"
-            box1text="Total"
-            box2text="W/Platform"
-            box3text="Outside P."
-            box1="64,200"
-            box2="50K"
-            box3="14,200"
-            percent="28,5%"
-            grow="+1,293"
-          />
+          <DashboardCards img="/icons/Customer-Icon.svg" topText="Customers" box1text="Active" box2text="Inactive"
+            box3text="Suspended" :box1="overall_customer.active" :box2="overall_customer.inactive"
+            :box3="overall_customer.suspended" :percent="overall_customer.increase_percentage"
+            :grow="overall_customer.increase" />
+          <DashboardCards img="/icons/Company-Icon.svg" topText="Companies" box1text="Total" box2text="Parent"
+            box3text="Child" :box1="overall_company.total" :box2="overall_company.parent" :box3="overall_company.child"
+            :percent="overall_company.increase_percentage" :grow="overall_company.increase" />
+          <DashboardCards img="/icons/User-Icon.svg" topText="Users" box1text="Total" box2text="Active"
+            box3text="Inactive" :box1="overall_user.total" :box2="overall_user.active" :box3="overall_user.inactive" :percent="overall_user.increase_percentage" :grow="overall_user.increase" />
+          <DashboardCards img="/icons/Box-Icon.svg" topText="Loads Sold" box1text="Total" box2text="W/Platform"
+            box3text="Outside P." :box1="overall_sold.total" :box2="overall_sold.platform" :box3="overall_sold.outside" :percent="overall_sold.increase_percentage" :grow="overall_sold.increase"/>
         </div>
       </div>
-
       <div class="wrapper">
         <div class="average">
           <div class="coast">
@@ -137,16 +92,13 @@
                   <span>${{ average_cost_broker.average_cost }}</span>
                   <div class="statistic">
                     <img src="../assets/icons/decrease.svg" alt="decrease" />
-                    {{average_cost_broker.increase_average_cost}} % 
+                    {{ average_cost_broker.increase_average_cost }} %
                   </div>
                 </div>
               </div>
             </div>
             <div class="chart">
-              <LineChartVue
-                :revenues="average_cost_broker.revenues"
-                :costs="average_cost_broker.costs"
-              />
+              <LineChartVue :revenues="average_cost_broker.revenues" :costs="average_cost_broker.costs" />
             </div>
           </div>
           <div class="payout">
@@ -221,51 +173,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <topCard
-                    icon="/img/Avatar.png"
-                    percentProp="92"
-                    name="Yahoo!"
-                    date="01/01/2020"
-                    percent="92%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar2.png"
-                    percentProp="90"
-                    name="Adidas"
-                    date="01/01/2020"
-                    percent="90%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar3.png"
-                    percentProp="88"
-                    name="Microsoft"
-                    date="01/01/2020"
-                    percent="88%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar4.png"
-                    percentProp="85"
-                    name="IKEA"
-                    date="01/01/2020"
-                    percent="85%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar5.png"
-                    percentProp="85"
-                    name="VTB"
-                    date="01/01/2020"
-                    percent="85%"
-                    money="300"
-                    margin="15"
-                  />
+                  <topCard icon="/img/Avatar.png" percentProp="92" name="Yahoo!" date="01/01/2020" percent="92%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar2.png" percentProp="90" name="Adidas" date="01/01/2020" percent="90%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar3.png" percentProp="88" name="Microsoft" date="01/01/2020" percent="88%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar4.png" percentProp="85" name="IKEA" date="01/01/2020" percent="85%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar5.png" percentProp="85" name="VTB" date="01/01/2020" percent="85%" money="300"
+                    margin="15" />
                 </tbody>
               </table>
             </div>
@@ -302,51 +219,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <topCard
-                    icon="/img/Avatar.png"
-                    percentProp="14"
-                    name="Yahoo!"
-                    date="01/01/2020"
-                    percent="14%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar2.png"
-                    percentProp="15"
-                    name="Adidas"
-                    date="01/01/2020"
-                    percent="15%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar3.png"
-                    percentProp="18"
-                    name="Microsoft"
-                    date="01/01/2020"
-                    percent="18%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar4.png"
-                    percentProp="20"
-                    name="IKEA"
-                    date="01/01/2020"
-                    percent="20%"
-                    money="300"
-                    margin="15"
-                  />
-                  <topCard
-                    icon="/img/Avatar5.png"
-                    percentProp="23"
-                    name="VTB"
-                    date="01/01/2020"
-                    percent="23%"
-                    money="300"
-                    margin="15"
-                  />
+                  <topCard icon="/img/Avatar.png" percentProp="14" name="Yahoo!" date="01/01/2020" percent="14%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar2.png" percentProp="15" name="Adidas" date="01/01/2020" percent="15%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar3.png" percentProp="18" name="Microsoft" date="01/01/2020" percent="18%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar4.png" percentProp="20" name="IKEA" date="01/01/2020" percent="20%"
+                    money="300" margin="15" />
+                  <topCard icon="/img/Avatar5.png" percentProp="23" name="VTB" date="01/01/2020" percent="23%" money="300"
+                    margin="15" />
                 </tbody>
               </table>
             </div>
@@ -365,6 +247,40 @@ import topCard from "@/components/top-card.vue";
 import circleReuse from "../assets/svg/circle-reuse.vue";
 import LineChartVue from "@/components/chart/LineChart.vue";
 import ColumnChart from "@/components/chart/ColumnChart.vue";
+
+interface OveralLCustomers {
+  active: string,
+  inactive: number,
+  suspended: number,
+  increase: number,
+  increase_percentage: number
+}
+
+
+interface OverallCompany {
+  total: number,
+  parent: number,
+  child: number,
+  increase: number,
+  increase_percentage: number
+}
+
+interface OverallUsers {
+  total: number,
+  active: number,
+  inactive: number,
+  increase: number,
+  increase_percentage: number
+}
+
+interface OverallSold {
+  total: number,
+  platform: number,
+  outside: number,
+  increase: number,
+  increase_percentage: number
+}
+
 interface AverageCostBroker {
   average_revenue: number;
   average_cost: number;
@@ -374,6 +290,71 @@ interface AverageCostBroker {
   costs: { year: string; month: string; cost: string | null }[];
 }
 
+const overall_customer = ref<OveralLCustomers>({
+  active: '',
+  inactive: 0,
+  suspended: 0,
+  increase: 0,
+  increase_percentage: 0
+})
+
+const overall_company = ref<OverallCompany>({
+  total: 0,
+  parent: 0,
+  child: 0,
+  increase: 0,
+  increase_percentage: 0
+})
+
+const overall_user = ref<OverallUsers>({
+  total: 0,
+  active: 0,
+  inactive: 0,
+  increase: 0,
+  increase_percentage: 0
+})
+const overall_sold = ref<OverallSold>({
+  total: 0,
+  platform: 0,
+  outside: 0,
+  increase: 0,
+  increase_percentage: 0
+})
+
+
+let Customerfunc = () => {
+  axios
+    .get(process.env.VUE_APP_URL + "overall/customers")
+    .then((res) => {
+      overall_customer.value = res.data;
+    });
+}
+
+let Companyfunc = () => {
+  axios
+    .get(process.env.VUE_APP_URL + "overall/companies")
+    .then((res) => {
+      overall_company.value = res.data;
+    });
+}
+
+let UsersFunc = () => {
+  axios
+    .get(process.env.VUE_APP_URL + "overall/users")
+    .then((res) => {
+      overall_user.value = res.data;
+    });
+}
+
+let SoldFunc = () => {
+  axios
+    .get(process.env.VUE_APP_URL + "overall/loads-sold")
+    .then((res) => {
+      overall_sold.value = res.data;
+    });
+}
+
+
 const average_cost_broker = ref<AverageCostBroker>({
   average_revenue: 0,
   average_cost: 0,
@@ -382,13 +363,22 @@ const average_cost_broker = ref<AverageCostBroker>({
   revenues: [],
   costs: [],
 });
+
+
 onMounted(() => {
   axios
     .get(process.env.VUE_APP_URL + "overall/average-cost-broker")
     .then((res) => {
       average_cost_broker.value = res.data;
     });
+  Customerfunc()
+  Companyfunc()
+  UsersFunc()
+  SoldFunc()
 });
+
+
+
 </script>
 <style scoped>
 .container {

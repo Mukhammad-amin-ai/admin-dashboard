@@ -11,7 +11,7 @@
                 <div class="right">
                     <div class="stat">
                         <img src="../assets/icons/grow.svg" alt="grow">
-                        <span>{{ percent }}</span> {{ grow }} month
+                        <span>{{ percent }} %</span> {{ grow }} month
                     </div>
                 </div>
             </div>
