@@ -1,5 +1,6 @@
 <template>
   <div id="chart">
+  
     <apexchart
       type="line"
       height="350"
@@ -10,13 +11,22 @@
 </template>
 
 <script lang="ts" setup>
+interface Props {
+  revenues: { year: string; month: string; revenue: string | null }[];
+  costs: { year: string; month: string; cost: string | null }[];
+}
+
+const { revenues, costs } = defineProps<Props>();
+
 import VueApexCharts from "vue3-apexcharts";
 import { onMounted, ref } from "vue";
 interface SeriesData {
   name: string;
-  data: (number | null)[];
+  data: {
+    x: string;
+    y: string | null;
+  }[];
 }
-
 interface ChartOptions {
   chart: {
     height: number;
@@ -75,7 +85,7 @@ interface ChartOptions {
   dataLabels: {
     enabled: boolean;
     style: {
-      colors: string[]; 
+      colors: string[];
     };
   };
   xaxis: {
@@ -109,11 +119,11 @@ const chartData: ChartData = {
   series: [
     {
       name: "Revenue",
-      data: [28, 20, 33, 36, 22, 32, 23, 34, 27, 25, 29, 37],
+      data: revenues.map(item => ({ x: item.month, y:  item.revenue })),
     },
     {
       name: "Cost",
-      data: [22, 29, 13, 30, 32, 22, 33, 31, 39, 29, 19, 37],
+      data: costs.map(item => ({ x: item.month, y: item.cost })),
     },
   ],
   chartOptions: {
@@ -157,7 +167,7 @@ const chartData: ChartData = {
       hover: {
         size: 6,
         sizeOffset: 3,
-        colors: ["#F29E61", "#92BAFB"], 
+        colors: ["#F29E61", "#92BAFB"],
       },
     },
 
@@ -175,7 +185,7 @@ const chartData: ChartData = {
     dataLabels: {
       enabled: false,
       style: {
-        colors: ["#92BAFB", "#F29E61"], 
+        colors: ["#92BAFB", "#F29E61"],
       },
     },
     xaxis: {
@@ -219,11 +229,10 @@ const chartData: ChartData = {
 .apexcharts-tooltip {
   background: #192038 !important;
   color: white !important;
-  background-size: 17px 9px; 
+  background-size: 17px 9px;
   background-position: center bottom;
   color: white !important;
   overflow: visible !important;
-  
 }
 
 /* .apexcharts-tooltip::after {
