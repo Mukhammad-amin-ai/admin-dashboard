@@ -21,16 +21,10 @@
 
             <div class="docs">
               Export Data
-              <img
-                src="../assets/icons/document-download.svg"
-                alt="document-download"
-              />
+              <img src="../assets/icons/document-download.svg" alt="document-download" />
             </div>
             <div class="search">
-              <img
-                src="../assets/icons/search-normal.svg"
-                alt="search-normal"
-              />
+              <img src="../assets/icons/search-normal.svg" alt="search-normal" />
             </div>
           </div>
         </div>
@@ -54,54 +48,19 @@
     <div class="main-section">
       <div class="dashboard-wrapper">
         <div class="dashboard-cards">
-          <DashboardCards
-            img="/icons/Customer-Icon.svg"
-            topText="Customers"
-            box1text="Active"
-            box2text="Inactive"
-            box3text="Suspended"
-            :box1="overall_customer.active"
-            :box2="overall_customer.inactive"
-            :box3="overall_customer.suspended"
-            :percent="overall_customer.increase_percentage"
-            :grow="overall_customer.increase"
-          />
-          <DashboardCards
-            img="/icons/Company-Icon.svg"
-            topText="Companies"
-            box1text="Total"
-            box2text="Parent"
-            box3text="Child"
-            :box1="overall_company.total"
-            :box2="overall_company.parent"
-            :box3="overall_company.child"
-            :percent="overall_company.increase_percentage"
-            :grow="overall_company.increase"
-          />
-          <DashboardCards
-            img="/icons/User-Icon.svg"
-            topText="Users"
-            box1text="Total"
-            box2text="Active"
-            box3text="Inactive"
-            :box1="overall_user.total"
-            :box2="overall_user.active"
-            :box3="overall_user.inactive"
-            :percent="overall_user.increase_percentage"
-            :grow="overall_user.increase"
-          />
-          <DashboardCards
-            img="/icons/Box-Icon.svg"
-            topText="Loads Sold"
-            box1text="Total"
-            box2text="W/Platform"
-            box3text="Outside P."
-            :box1="overall_sold.total"
-            :box2="overall_sold.platform"
-            :box3="overall_sold.outside"
-            :percent="overall_sold.increase_percentage"
-            :grow="overall_sold.increase"
-          />
+          <DashboardCards img="/icons/Customer-Icon.svg" topText="Customers" box1text="Active" box2text="Inactive"
+            box3text="Suspended" :box1="overall_customer.active" :box2="overall_customer.inactive"
+            :box3="overall_customer.suspended" :percent="overall_customer.increase_percentage"
+            :grow="overall_customer.increase" />
+          <DashboardCards img="/icons/Company-Icon.svg" topText="Companies" box1text="Total" box2text="Parent"
+            box3text="Child" :box1="overall_company.total" :box2="overall_company.parent" :box3="overall_company.child"
+            :percent="overall_company.increase_percentage" :grow="overall_company.increase" />
+          <DashboardCards img="/icons/User-Icon.svg" topText="Users" box1text="Total" box2text="Active"
+            box3text="Inactive" :box1="overall_user.total" :box2="overall_user.active" :box3="overall_user.inactive"
+            :percent="overall_user.increase_percentage" :grow="overall_user.increase" />
+          <DashboardCards img="/icons/Box-Icon.svg" topText="Loads Sold" box1text="Total" box2text="W/Platform"
+            box3text="Outside P." :box1="overall_sold.total" :box2="overall_sold.platform" :box3="overall_sold.outside"
+            :percent="overall_sold.increase_percentage" :grow="overall_sold.increase" />
         </div>
       </div>
       <div class="wrapper">
@@ -141,10 +100,7 @@
               </div>
             </div>
             <div class="chart">
-              <LineChartVue
-                :revenues="average_cost_broker.revenues"
-                :costs="average_cost_broker.costs"
-              />
+              <LineChartVue :revenues="average_cost_broker.revenues" :costs="average_cost_broker.costs" />
             </div>
           </div>
           <div class="payout">
@@ -182,10 +138,7 @@
               </div>
             </div>
             <div class="chart">
-              <ColumnChart
-                :margins="average_payout_carrier.margins"
-                :revenues="average_payout_carrier.revenues"
-              />
+              <ColumnChart :margins="average_payout_carrier.margins" :revenues="average_payout_carrier.revenues" />
             </div>
           </div>
         </div>
@@ -196,18 +149,10 @@
               <div class="customer-btn">
                 <!-- btn-active -->
                 <!-- for showing that it is active  -->
-                <button
-                  class="btn"
-                  :class="{ 'btn-active': broker }"
-                  @click="TopBrokerFunc"
-                >
+                <button class="btn" :class="{ 'btn-active': broker }" @click="TopBrokerFunc">
                   Broker
                 </button>
-                <button
-                  class="btn"
-                  :class="{ 'btn-active': carrier }"
-                  @click="TopCarrierFunc"
-                >
+                <button class="btn">
                   Carrier
                 </button>
               </div>
@@ -235,16 +180,10 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody v-for="item in top_customer">
-                  <topCard
-                    :icon="item.logo"
-                    :percentProp="item.perfomance"
-                    :name="item.name ? item.name : 'null'"
-                    :date="item.data"
-                    :percent="item.perfomance"
-                    :money="item.margin"
-                    :margin="item.percentage ? item.percentage : 'null'"
-                  />
+                <tbody v-for="item in top_broker">
+                  <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
+                    :date="item.data" :percent="item.perfomance" :money="item.margin"
+                    :margin="item.percentage ? item.percentage : 'null'" />
                 </tbody>
               </table>
             </div>
@@ -255,18 +194,10 @@
               <div class="customer-btn">
                 <!-- btn-active -->
                 <!-- for showing that it is active  -->
-                <button
-                  class="btn"
-                  :class="{ 'btn-active': broker }"
-                  @click="TopBrokerFunc"
-                >
+                <button class="btn">
                   Broker
                 </button>
-                <button
-                  class="btn"
-                  :class="{ 'btn-active': carrier }"
-                  @click="TopCarrierFunc"
-                >
+                <button class="btn" :class="{ 'btn-active': carrier }" @click="TopCarrierFunc">
                   Carrier
                 </button>
               </div>
@@ -294,16 +225,10 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody v-for="item in top_customer">
-                  <topCard
-                    :icon="item.logo"
-                    :percentProp="item.perfomance"
-                    :name="item.name ? item.name : 'null'"
-                    :date="item.data"
-                    :percent="item.perfomance"
-                    :money="item.margin"
-                    :margin="item.percentage ? item.percentage : 'null'"
-                  />
+                <tbody v-for="item in top_carriers">
+                  <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
+                    :date="item.data" :percent="item.perfomance" :money="item.margin"
+                    :margin="item.percentage ? item.percentage : 'null'" />
                 </tbody>
               </table>
             </div>
@@ -372,31 +297,25 @@ interface AveragePayoutCarrier {
   margins: { year: string; month: string; margin: string | null }[];
 }
 
-interface TopCustomer {
-  name: string;
-  data: string;
-  email: string;
-  margin: number;
-  percentage: number;
-  perfomance: number;
-}
 
 interface TopBroker {
-  name: string;
-  data: string;
-  email: string;
-  margin: number;
-  percentage: number;
-  perfomance: number;
+  logo: string,
+  name: string,
+  data: string,
+  email: string
+  margin: number,
+  percentage: number,
+  perfomance: number,
 }
 
 interface TopCarriers {
-  name: string;
-  data: string;
-  email: string;
-  margin: number;
-  percentage: number;
-  perfomance: number;
+  logo: string,
+  name: string,
+  data: string,
+  email: string
+  margin: number,
+  percentage: number,
+  perfomance: number,
 }
 
 const overall_customer = ref<OveralLCustomers>({
@@ -448,32 +367,26 @@ const average_payout_carrier = ref<AveragePayoutCarrier>({
   margins: [],
 });
 
-const top_customer = ref<TopCustomer>({
-  name: "",
-  data: "",
-  email: "",
-  margin: 0,
-  percentage: 0,
-  perfomance: 0,
-});
-
 const top_broker = ref<TopBroker>({
+  logo: "",
   name: "",
   data: "",
   email: "",
   margin: 0,
   percentage: 0,
   perfomance: 0,
-});
+})
 
 const top_carriers = ref<TopCarriers>({
+  logo: "",
   name: "",
   data: "",
   email: "",
   margin: 0,
   percentage: 0,
   perfomance: 0,
-});
+})
+
 
 let Customerfunc = () => {
   axios.get(process.env.VUE_APP_URL + "overall/customers").then((res) => {
@@ -499,31 +412,30 @@ let SoldFunc = () => {
   });
 };
 
-let TopCustomerFunc = () => {
-  axios.get(process.env.VUE_APP_URL + "overall/top-customers").then((res) => {
-    top_customer.value = res.data;
-  });
-};
 
 const broker = ref<boolean>(true);
 const carrier = ref<boolean>(false);
 
 let TopBrokerFunc = () => {
-  broker.value = broker.value = true;
-  carrier.value = carrier.value = false;
-  axios.get(process.env.VUE_APP_URL + "overall/top-brokers").then((res) => {
-    // console.log(res.data);
-    top_customer.value = res.data.data;
-  });
-};
+  broker.value = broker.value = true
+
+  axios
+    .get(process.env.VUE_APP_URL + "overall/top-brokers")
+    .then((res) => {
+      top_broker.value = res.data.data;
+    });
+}
 
 let TopCarrierFunc = () => {
-  carrier.value = carrier.value = true;
-  broker.value = broker.value = false;
-  axios.get(process.env.VUE_APP_URL + "overall/top-carriers").then((res) => {
-    top_customer.value = res.data.data;
-  });
-};
+  carrier.value = carrier.value = true
+
+  axios
+    .get(process.env.VUE_APP_URL + "overall/top-carriers")
+    .then((res) => {
+      top_carriers.value = res.data.data;
+    });
+}
+
 
 onMounted(() => {
   axios
@@ -540,7 +452,8 @@ onMounted(() => {
   Companyfunc();
   UsersFunc();
   SoldFunc();
-  TopBrokerFunc();
+  TopBrokerFunc()
+  TopCarrierFunc()
 });
 </script>
 <style scoped>
