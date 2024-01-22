@@ -87,6 +87,13 @@ interface ChartOptions {
     title: {
       text: string;
     };
+    labels: {
+      style: {
+        colors: string;
+        fontSize: string;
+        fontFamily: string;
+      };
+    };
   };
   yaxis: {
     title: {
@@ -199,6 +206,13 @@ const chartData = ref<ChartData>({
       ],
       title: {
         text: "",
+      },
+      labels: {
+        style: {
+          colors: "#909090",
+          fontSize: "12px",
+          fontFamily: "Euclid-Regular",
+        },
       },
     },
     yaxis: {
@@ -345,7 +359,6 @@ axios
         },
       },
     };
-  
   })
   .catch((error) => {
     console.error("Error fetching data:", error);
