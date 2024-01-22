@@ -8,7 +8,7 @@
 </template>
 <script lang="ts" setup>
 defineProps({
-    percent: String,
+    percent: Number,
 })
 </script>
 <style scoped>

@@ -48,7 +48,7 @@ defineProps({
     percent: String,
     money: String,
     margin: String,
-    percentProp:String,
+    percentProp:Number,
 })
 
 </script>
