@@ -360,7 +360,6 @@ const average_cost_broker = ref<AverageCostBroker>({
   costs: [],
 })
 
-
 const top_customer = ref<TopCustomer>({
   name: "",
   data: "",
@@ -388,6 +387,9 @@ const top_carriers = ref<TopCarriers>({
   perfomance: 0,
 })
 
+interface AnyData {
+  res: any
+}
 
 let Customerfunc = () => {
   axios
@@ -422,7 +424,7 @@ let SoldFunc = () => {
 }
 
 let TopCustomerFunc = () => {
-  axios 
+  axios
     .get(process.env.VUE_APP_URL + "overall/top-customers")
     .then((res) => {
       console.log(res.data);
@@ -432,7 +434,7 @@ let TopCustomerFunc = () => {
 
 
 let TopBrokerFunc = () => {
-  axios 
+  axios
     .get(process.env.VUE_APP_URL + "overall/top-brokers")
     .then((res) => {
       console.log(res.data);
@@ -441,7 +443,7 @@ let TopBrokerFunc = () => {
 }
 
 let TopCarrierFunc = () => {
-  axios 
+  axios
     .get(process.env.VUE_APP_URL + "overall/top-carriers")
     .then((res) => {
       console.log(res.data);
