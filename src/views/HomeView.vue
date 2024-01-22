@@ -456,9 +456,6 @@ onMounted(() => {
     .then((res) => {
       average_cost_broker.value = res.data;
     });
-<<<<<<< HEAD
-  console.log(average_cost_broker.value, "this home");
-=======
   Customerfunc()
   Companyfunc()
   UsersFunc()
@@ -466,7 +463,7 @@ onMounted(() => {
   TopCustomerFunc()
   TopBrokerFunc()
   TopCarrierFunc()
->>>>>>> c9612072b9a055c76ee7267f4f5ae180e48ee4bb
+
 });
 
 
