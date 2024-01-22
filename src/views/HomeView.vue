@@ -149,8 +149,8 @@
               <div class="customer-btn">
                 <!-- btn-active -->
                 <!-- for showing that it is active  -->
-                <button class="btn" @click="TopBrokerFunc">Broker</button>
-                <button class="btn" @click="TopCarrierFunc">Carrier</button>
+                <button class="btn" :class="{ 'btn-active': broker }" @click="TopBrokerFunc">Broker</button>
+                <button class="btn" :class="{ 'btn-active': carrier }" @click="TopCarrierFunc">Carrier</button>
               </div>
             </div>
             <div class="customer-table">
@@ -177,21 +177,9 @@
                   </tr>
                 </thead>
                 <tbody v-for="item in top_customer">
-                  <!-- <topCard icon="/img/Avatar.png" percentProp="92" name="Yahoo!" date="01/01/2020" percent="92%"
-                    money="300" margin="15" />
-                  <topCard icon="/img/Avatar2.png" percentProp="90" name="Adidas" date="01/01/2020" percent="90%"
-                    money="300" margin="15" />
-                  <topCard icon="/img/Avatar3.png" percentProp="88" name="Microsoft" date="01/01/2020" percent="88%"
-                    money="300" margin="15" />
-                  <topCard icon="/img/Avatar4.png" percentProp="85" name="IKEA" date="01/01/2020" percent="85%"
-                    money="300" margin="15" />
-                  <topCard icon="/img/Avatar5.png" percentProp="85" name="VTB" date="01/01/2020" percent="85%" money="300"
-                    margin="15" /> -->
-                  <!-- <div v-for="item in top_customer"> -->
-                  <topCard icon="/img/Avatar5.png" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
+                  <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
                     :date="item.data" :percent="item.perfomance" :money="item.margin"
                     :margin="item.percentage ? item.percentage : 'null'" />
-                  <!-- </div> -->
                 </tbody>
               </table>
             </div>
@@ -200,10 +188,10 @@
             <div class="customer-header">
               <h4>Top Best 5 Customers</h4>
               <div class="customer-btn">
-                 <!-- btn-active -->
+                <!-- btn-active -->
                 <!-- for showing that it is active  -->
-                <button class="btn">Broker</button>
-                <button class="btn">Carrier</button>
+                <button class="btn" :class="{ 'btn-active': broker }" @click="TopBrokerFunc">Broker</button>
+                <button class="btn" :class="{ 'btn-active': carrier }" @click="TopCarrierFunc">Carrier</button>
               </div>
             </div>
             <div class="customer-table">
@@ -230,21 +218,9 @@
                   </tr>
                 </thead>
                 <tbody v-for="item in top_customer">
-                  <!-- <topCard icon="/img/Avatar.png" percentProp="92" name="Yahoo!" date="01/01/2020" percent="92%"
-                    money="300" margin="15" />
-                  <topCard icon="/img/Avatar2.png" percentProp="90" name="Adidas" date="01/01/2020" percent="90%"
-                    money="300" margin="15" />
-                  <topCard icon="/img/Avatar3.png" percentProp="88" name="Microsoft" date="01/01/2020" percent="88%"
-                    money="300" margin="15" />
-                  <topCard icon="/img/Avatar4.png" percentProp="85" name="IKEA" date="01/01/2020" percent="85%"
-                    money="300" margin="15" />
-                  <topCard icon="/img/Avatar5.png" percentProp="85" name="VTB" date="01/01/2020" percent="85%" money="300"
-                    margin="15" /> -->
-                  <!-- <div v-for="item in top_customer"> -->
-                  <topCard icon="/img/Avatar5.png" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
+                  <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
                     :date="item.data" :percent="item.perfomance" :money="item.margin"
                     :margin="item.percentage ? item.percentage : 'null'" />
-                  <!-- </div> -->
                 </tbody>
               </table>
             </div>
@@ -440,19 +416,27 @@ let TopCustomerFunc = () => {
     });
 }
 
+const broker = ref<boolean>(true)
+const carrier = ref<boolean>(false)
+
 let TopBrokerFunc = () => {
+  broker.value = broker.value = true
+  carrier.value = carrier.value = false
   axios
     .get(process.env.VUE_APP_URL + "overall/top-brokers")
     .then((res) => {
-      top_customer.value = res.data;
+      // console.log(res.data);
+      top_customer.value = res.data.data;
     });
 }
 
 let TopCarrierFunc = () => {
+  carrier.value = carrier.value = true
+  broker.value = broker.value = false
   axios
     .get(process.env.VUE_APP_URL + "overall/top-carriers")
     .then((res) => {
-      top_customer.value = res.data;
+      top_customer.value = res.data.data;
     });
 }
 
@@ -467,7 +451,7 @@ onMounted(() => {
   Companyfunc()
   UsersFunc()
   SoldFunc()
-  TopCustomerFunc()
+  TopBrokerFunc()
 });
 
 
