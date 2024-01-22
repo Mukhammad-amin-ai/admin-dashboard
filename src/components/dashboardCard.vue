@@ -11,7 +11,7 @@
                 <div class="right">
                     <div class="stat">
                         <img src="../assets/icons/grow.svg" alt="grow">
-                        <span>{{ percent }}</span> {{ grow }} month
+                        <span>{{ percent }} %</span> {{ grow }} month
                     </div>
                 </div>
             </div>
@@ -39,11 +39,11 @@ defineProps({
     box1text: String,
     box2text: String,
     box3text: String,
-    box1: String,
-    box2: String,
-    box3: String,
-    percent: String,
-    grow: String,
+    box1: Number,
+    box2: Number,
+    box3: Number,
+    percent: Number,
+    grow: Number,
     img: String
 })
 
