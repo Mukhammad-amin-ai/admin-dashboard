@@ -149,8 +149,8 @@
               <div class="customer-btn">
                 <!-- btn-active -->
                 <!-- for showing that it is active  -->
-                <button class="btn" :class="{ 'btn-active': broker }" @click="TopBrokerFunc">Broker</button>
-                <button class="btn" :class="{ 'btn-active': carrier }" @click="TopCarrierFunc">Carrier</button>
+                <button class="btn" :class="{ 'btn-active': broker }">Broker</button>
+                <button class="btn">Carrier</button>
               </div>
             </div>
             <div class="customer-table">
@@ -176,7 +176,7 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody v-for="item in top_customer">
+                <tbody v-for="item in top_broker">
                   <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
                     :date="item.data" :percent="item.perfomance" :money="item.margin"
                     :margin="item.percentage ? item.percentage : 'null'" />
@@ -190,8 +190,8 @@
               <div class="customer-btn">
                 <!-- btn-active -->
                 <!-- for showing that it is active  -->
-                <button class="btn" :class="{ 'btn-active': broker }" @click="TopBrokerFunc">Broker</button>
-                <button class="btn" :class="{ 'btn-active': carrier }" @click="TopCarrierFunc">Carrier</button>
+                <button class="btn">Broker</button>
+                <button class="btn" :class="{ 'btn-active': carrier }">Carrier</button>
               </div>
             </div>
             <div class="customer-table">
@@ -217,7 +217,7 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody v-for="item in top_customer">
+                <tbody v-for="item in top_carriers">
                   <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
                     :date="item.data" :percent="item.perfomance" :money="item.margin"
                     :margin="item.percentage ? item.percentage : 'null'" />
@@ -281,16 +281,8 @@ interface AverageCostBroker {
   costs: { year: string; month: string; cost: string | null }[];
 }
 
-interface TopCustomer {
-  name: string,
-  data: string,
-  email: string
-  margin: number,
-  percentage: number,
-  perfomance: number,
-}
-
 interface TopBroker {
+  logo: string,
   name: string,
   data: string,
   email: string
@@ -300,6 +292,7 @@ interface TopBroker {
 }
 
 interface TopCarriers {
+  logo: string,
   name: string,
   data: string,
   email: string
@@ -349,16 +342,8 @@ const average_cost_broker = ref<AverageCostBroker>({
   costs: [],
 })
 
-const top_customer = ref<TopCustomer>({
-  name: "",
-  data: "",
-  email: "",
-  margin: 0,
-  percentage: 0,
-  perfomance: 0,
-})
-
 const top_broker = ref<TopBroker>({
+  logo: "",
   name: "",
   data: "",
   email: "",
@@ -368,6 +353,7 @@ const top_broker = ref<TopBroker>({
 })
 
 const top_carriers = ref<TopCarriers>({
+  logo: "",
   name: "",
   data: "",
   email: "",
@@ -408,35 +394,27 @@ let SoldFunc = () => {
     });
 }
 
-let TopCustomerFunc = () => {
-  axios
-    .get(process.env.VUE_APP_URL + "overall/top-customers")
-    .then((res) => {
-      top_customer.value = res.data;
-    });
-}
 
 const broker = ref<boolean>(true)
 const carrier = ref<boolean>(false)
 
 let TopBrokerFunc = () => {
   broker.value = broker.value = true
-  carrier.value = carrier.value = false
+  // carrier.value = carrier.value = false
   axios
     .get(process.env.VUE_APP_URL + "overall/top-brokers")
     .then((res) => {
-      // console.log(res.data);
-      top_customer.value = res.data.data;
+      top_broker.value = res.data.data;
     });
 }
 
 let TopCarrierFunc = () => {
   carrier.value = carrier.value = true
-  broker.value = broker.value = false
+  // broker.value = broker.value = false
   axios
     .get(process.env.VUE_APP_URL + "overall/top-carriers")
     .then((res) => {
-      top_customer.value = res.data.data;
+      top_carriers.value = res.data.data;
     });
 }
 
@@ -452,6 +430,7 @@ onMounted(() => {
   UsersFunc()
   SoldFunc()
   TopBrokerFunc()
+  TopCarrierFunc()
 });
 
 
