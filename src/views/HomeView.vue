@@ -147,8 +147,10 @@
             <div class="customer-header">
               <h4>Top Best 5 Customers</h4>
               <div class="customer-btn">
-                <button class="btn btn-active">Broker</button>
-                <button class="btn">Carrier</button>
+                <!-- btn-active -->
+                <!-- for showing that it is active  -->
+                <button class="btn" @click="TopBrokerFunc">Broker</button>
+                <button class="btn" @click="TopCarrierFunc">Carrier</button>
               </div>
             </div>
             <div class="customer-table">
@@ -174,8 +176,8 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <topCard icon="/img/Avatar.png" percentProp="92" name="Yahoo!" date="01/01/2020" percent="92%"
+                <tbody v-for="item in top_customer">
+                  <!-- <topCard icon="/img/Avatar.png" percentProp="92" name="Yahoo!" date="01/01/2020" percent="92%"
                     money="300" margin="15" />
                   <topCard icon="/img/Avatar2.png" percentProp="90" name="Adidas" date="01/01/2020" percent="90%"
                     money="300" margin="15" />
@@ -184,7 +186,12 @@
                   <topCard icon="/img/Avatar4.png" percentProp="85" name="IKEA" date="01/01/2020" percent="85%"
                     money="300" margin="15" />
                   <topCard icon="/img/Avatar5.png" percentProp="85" name="VTB" date="01/01/2020" percent="85%" money="300"
-                    margin="15" />
+                    margin="15" /> -->
+                  <!-- <div v-for="item in top_customer"> -->
+                  <topCard icon="/img/Avatar5.png" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
+                    :date="item.data" :percent="item.perfomance" :money="item.margin"
+                    :margin="item.percentage ? item.percentage : 'null'" />
+                  <!-- </div> -->
                 </tbody>
               </table>
             </div>
@@ -193,7 +200,9 @@
             <div class="customer-header">
               <h4>Top Best 5 Customers</h4>
               <div class="customer-btn">
-                <button class="btn btn-active">Broker</button>
+                 <!-- btn-active -->
+                <!-- for showing that it is active  -->
+                <button class="btn">Broker</button>
                 <button class="btn">Carrier</button>
               </div>
             </div>
@@ -220,17 +229,22 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <topCard icon="/img/Avatar.png" percentProp="14" name="Yahoo!" date="01/01/2020" percent="14%"
+                <tbody v-for="item in top_customer">
+                  <!-- <topCard icon="/img/Avatar.png" percentProp="92" name="Yahoo!" date="01/01/2020" percent="92%"
                     money="300" margin="15" />
-                  <topCard icon="/img/Avatar2.png" percentProp="15" name="Adidas" date="01/01/2020" percent="15%"
+                  <topCard icon="/img/Avatar2.png" percentProp="90" name="Adidas" date="01/01/2020" percent="90%"
                     money="300" margin="15" />
-                  <topCard icon="/img/Avatar3.png" percentProp="18" name="Microsoft" date="01/01/2020" percent="18%"
+                  <topCard icon="/img/Avatar3.png" percentProp="88" name="Microsoft" date="01/01/2020" percent="88%"
                     money="300" margin="15" />
-                  <topCard icon="/img/Avatar4.png" percentProp="20" name="IKEA" date="01/01/2020" percent="20%"
+                  <topCard icon="/img/Avatar4.png" percentProp="85" name="IKEA" date="01/01/2020" percent="85%"
                     money="300" margin="15" />
-                  <topCard icon="/img/Avatar5.png" percentProp="23" name="VTB" date="01/01/2020" percent="23%" money="300"
-                    margin="15" />
+                  <topCard icon="/img/Avatar5.png" percentProp="85" name="VTB" date="01/01/2020" percent="85%" money="300"
+                    margin="15" /> -->
+                  <!-- <div v-for="item in top_customer"> -->
+                  <topCard icon="/img/Avatar5.png" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
+                    :date="item.data" :percent="item.perfomance" :money="item.margin"
+                    :margin="item.percentage ? item.percentage : 'null'" />
+                  <!-- </div> -->
                 </tbody>
               </table>
             </div>
@@ -290,7 +304,6 @@ interface AverageCostBroker {
   revenues: { year: string; month: string; revenue: string | null }[];
   costs: { year: string; month: string; cost: string | null }[];
 }
-
 
 interface TopCustomer {
   name: string,
@@ -387,10 +400,6 @@ const top_carriers = ref<TopCarriers>({
   perfomance: 0,
 })
 
-interface AnyData {
-  res: any
-}
-
 let Customerfunc = () => {
   axios
     .get(process.env.VUE_APP_URL + "overall/customers")
@@ -427,18 +436,15 @@ let TopCustomerFunc = () => {
   axios
     .get(process.env.VUE_APP_URL + "overall/top-customers")
     .then((res) => {
-      console.log(res.data);
       top_customer.value = res.data;
     });
 }
-
 
 let TopBrokerFunc = () => {
   axios
     .get(process.env.VUE_APP_URL + "overall/top-brokers")
     .then((res) => {
-      console.log(res.data);
-      top_broker.value = res.data;
+      top_customer.value = res.data;
     });
 }
 
@@ -446,8 +452,7 @@ let TopCarrierFunc = () => {
   axios
     .get(process.env.VUE_APP_URL + "overall/top-carriers")
     .then((res) => {
-      console.log(res.data);
-      top_carriers.value = res.data;
+      top_customer.value = res.data;
     });
 }
 
@@ -463,9 +468,6 @@ onMounted(() => {
   UsersFunc()
   SoldFunc()
   TopCustomerFunc()
-  TopBrokerFunc()
-  TopCarrierFunc()
-
 });
 
 
@@ -860,6 +862,7 @@ table {
 
 thead tr {
   width: 100%;
+  height: auto;
   background-color: #f9fafb;
 }
 
@@ -889,6 +892,7 @@ th:nth-child(4) .table-item {
 
 tbody tr {
   width: 100%;
+  height: auto;
   background-color: #fff;
 }
 

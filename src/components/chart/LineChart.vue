@@ -1,6 +1,5 @@
 <template>
   <div id="chart">
-{{ average_cost_broker }}
     <apexchart
       type="line"
       height="350"

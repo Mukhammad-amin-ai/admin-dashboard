@@ -17,7 +17,7 @@
                     <semiReg :percent="percentProp"/>
                 </div>
                 <div class="percent-text">
-                    <h5>{{ percent }}</h5>
+                    <h5>{{ percent }} %</h5>
                 </div>
             </div>
         </td>
