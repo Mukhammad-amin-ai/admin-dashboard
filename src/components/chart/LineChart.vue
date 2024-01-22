@@ -1,6 +1,6 @@
 <template>
   <div id="chart">
-  
+{{ average_cost_broker }}
     <apexchart
       type="line"
       height="350"
@@ -11,15 +11,17 @@
 </template>
 
 <script lang="ts" setup>
-interface Props {
-  revenues: { year: string; month: string; revenue: string | null }[];
-  costs: { year: string; month: string; cost: string | null }[];
-}
+import axios from "axios"
+// interface Props {
+  // revenues: { year: string; month: string; revenue: string | null }[];
+  // costs: { year: string; month: string; cost: string | null }[];
+// }
 
-const { revenues, costs } = defineProps<Props>();
+// const { revenues, costs } = defineProps<Props>();
 
 import VueApexCharts from "vue3-apexcharts";
-import { onMounted, ref } from "vue";
+import { onMounted, ref , watch } from "vue";
+
 interface SeriesData {
   name: string;
   data: {
@@ -115,15 +117,49 @@ interface ChartData {
   chartOptions: ChartOptions;
 }
 
+
+
+interface AverageCostBroker {
+  average_revenue: number;
+  average_cost: number;
+  increase_average_revenue: number;
+  increase_average_cost: number;
+  revenues: { year: string; month: string; revenue: string | null }[];
+  costs: { year: string; month: string; cost: string | null }[];
+}
+
+const average_cost_broker = ref<AverageCostBroker>({
+  average_revenue: 0,
+  average_cost: 0,
+  increase_average_revenue: 0,
+  increase_average_cost: 0,
+  revenues: [],
+  costs: [],
+});
+
+axios
+  .get(process.env.VUE_APP_URL + "overall/average-cost-broker")
+  .then((res) => {
+    average_cost_broker.value = res.data;
+    console.log(average_cost_broker.value, 'value have');
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  })
+    console.log(average_cost_broker.value, 'value not');
+
+
+
+
 const chartData: ChartData = {
   series: [
     {
       name: "Revenue",
-      data: revenues.map(item => ({ x: item.month, y:  item.revenue })),
+      data: average_cost_broker.value.revenues.map((item) => ({ x: item.month, y: item.revenue })),
     },
     {
       name: "Cost",
-      data: costs.map(item => ({ x: item.month, y: item.cost })),
+      data: average_cost_broker.value.costs.map((item) => ({ x: item.month, y: item.cost })),
     },
   ],
   chartOptions: {
@@ -223,6 +259,10 @@ const chartData: ChartData = {
     },
   },
 };
+
+
+
+
 </script>
 
 <style>

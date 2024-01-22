@@ -137,7 +137,7 @@
                   <span>${{ average_cost_broker.average_cost }}</span>
                   <div class="statistic">
                     <img src="../assets/icons/decrease.svg" alt="decrease" />
-                    {{average_cost_broker.increase_average_cost}} % 
+                    {{ average_cost_broker.increase_average_cost }} %
                   </div>
                 </div>
               </div>
@@ -388,6 +388,7 @@ onMounted(() => {
     .then((res) => {
       average_cost_broker.value = res.data;
     });
+  console.log(average_cost_broker.value, "this home");
 });
 </script>
 <style scoped>
