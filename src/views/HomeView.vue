@@ -117,7 +117,7 @@
                   <span>${{ average_payout_carrier.average_revenue }}</span>
                   <div class="statistic">
                     <img src="../assets/icons/grow.svg" alt="grow" />
-                    6,5%
+                   {{ average_payout_carrier.increase_average_revenue }}
                   </div>
                 </div>
               </div>
@@ -132,7 +132,7 @@
                   <span>${{ average_payout_carrier.average_margin }}</span>
                   <div class="statistic">
                     <img src="../assets/icons/grow.svg" alt="grow" />
-                    6,5%
+                    {{ average_payout_carrier.increase_average_margin }} %
                   </div>
                 </div>
               </div>
@@ -292,7 +292,7 @@ interface AveragePayoutCarrier {
   average_revenue: number;
   average_margin: number;
   increase_average_revenue: number;
-  increase_average_cost: number;
+  increase_average_margin: number;
   revenues: { year: string; month: string; revenue: string | null }[];
   margins: { year: string; month: string; margin: string | null }[];
 }
@@ -362,7 +362,7 @@ const average_payout_carrier = ref<AveragePayoutCarrier>({
   average_revenue: 0,
   average_margin: 0,
   increase_average_revenue: 0,
-  increase_average_cost: 0,
+  increase_average_margin: 0,
   revenues: [],
   margins: [],
 });
@@ -824,7 +824,7 @@ onMounted(() => {
   font-style: normal;
   color: #000;
   font-family: Euclid-Medium;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .btn-active {
