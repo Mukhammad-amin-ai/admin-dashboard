@@ -56,9 +56,11 @@
             box3text="Child" :box1="overall_company.total" :box2="overall_company.parent" :box3="overall_company.child"
             :percent="overall_company.increase_percentage" :grow="overall_company.increase" />
           <DashboardCards img="/icons/User-Icon.svg" topText="Users" box1text="Total" box2text="Active"
-            box3text="Inactive" :box1="overall_user.total" :box2="overall_user.active" :box3="overall_user.inactive" :percent="overall_user.increase_percentage" :grow="overall_user.increase" />
+            box3text="Inactive" :box1="overall_user.total" :box2="overall_user.active" :box3="overall_user.inactive"
+            :percent="overall_user.increase_percentage" :grow="overall_user.increase" />
           <DashboardCards img="/icons/Box-Icon.svg" topText="Loads Sold" box1text="Total" box2text="W/Platform"
-            box3text="Outside P." :box1="overall_sold.total" :box2="overall_sold.platform" :box3="overall_sold.outside" :percent="overall_sold.increase_percentage" :grow="overall_sold.increase"/>
+            box3text="Outside P." :box1="overall_sold.total" :box2="overall_sold.platform" :box3="overall_sold.outside"
+            :percent="overall_sold.increase_percentage" :grow="overall_sold.increase" />
         </div>
       </div>
       <div class="wrapper">
@@ -256,7 +258,6 @@ interface OveralLCustomers {
   increase_percentage: number
 }
 
-
 interface OverallCompany {
   total: number,
   parent: number,
@@ -290,6 +291,34 @@ interface AverageCostBroker {
   costs: { year: string; month: string; cost: string | null }[];
 }
 
+
+interface TopCustomer {
+  name: string,
+  data: string,
+  email: string
+  margin: number,
+  percentage: number,
+  perfomance: number,
+}
+
+interface TopBroker {
+  name: string,
+  data: string,
+  email: string
+  margin: number,
+  percentage: number,
+  perfomance: number,
+}
+
+interface TopCarriers {
+  name: string,
+  data: string,
+  email: string
+  margin: number,
+  percentage: number,
+  perfomance: number,
+}
+
 const overall_customer = ref<OveralLCustomers>({
   active: '',
   inactive: 0,
@@ -313,12 +342,50 @@ const overall_user = ref<OverallUsers>({
   increase: 0,
   increase_percentage: 0
 })
+
 const overall_sold = ref<OverallSold>({
   total: 0,
   platform: 0,
   outside: 0,
   increase: 0,
   increase_percentage: 0
+})
+
+const average_cost_broker = ref<AverageCostBroker>({
+  average_revenue: 0,
+  average_cost: 0,
+  increase_average_revenue: 0,
+  increase_average_cost: 0,
+  revenues: [],
+  costs: [],
+})
+
+
+const top_customer = ref<TopCustomer>({
+  name: "",
+  data: "",
+  email: "",
+  margin: 0,
+  percentage: 0,
+  perfomance: 0,
+})
+
+const top_broker = ref<TopBroker>({
+  name: "",
+  data: "",
+  email: "",
+  margin: 0,
+  percentage: 0,
+  perfomance: 0,
+})
+
+const top_carriers = ref<TopCarriers>({
+  name: "",
+  data: "",
+  email: "",
+  margin: 0,
+  percentage: 0,
+  perfomance: 0,
 })
 
 
@@ -354,15 +421,33 @@ let SoldFunc = () => {
     });
 }
 
+let TopCustomerFunc = () => {
+  axios 
+    .get(process.env.VUE_APP_URL + "overall/top-customers")
+    .then((res) => {
+      console.log(res.data);
+      top_customer.value = res.data;
+    });
+}
 
-const average_cost_broker = ref<AverageCostBroker>({
-  average_revenue: 0,
-  average_cost: 0,
-  increase_average_revenue: 0,
-  increase_average_cost: 0,
-  revenues: [],
-  costs: [],
-});
+
+let TopBrokerFunc = () => {
+  axios 
+    .get(process.env.VUE_APP_URL + "overall/top-brokers")
+    .then((res) => {
+      console.log(res.data);
+      top_broker.value = res.data;
+    });
+}
+
+let TopCarrierFunc = () => {
+  axios 
+    .get(process.env.VUE_APP_URL + "overall/top-carriers")
+    .then((res) => {
+      console.log(res.data);
+      top_carriers.value = res.data;
+    });
+}
 
 
 onMounted(() => {
@@ -375,6 +460,9 @@ onMounted(() => {
   Companyfunc()
   UsersFunc()
   SoldFunc()
+  TopCustomerFunc()
+  TopBrokerFunc()
+  TopCarrierFunc()
 });
 
 
