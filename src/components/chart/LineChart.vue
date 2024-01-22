@@ -3,29 +3,22 @@
     <apexchart
       type="line"
       height="350"
-      :options="chartData.chartOptions"
       :series="chartData.series"
+      :options="chartData.chartOptions"
     ></apexchart>
   </div>
 </template>
 
 <script lang="ts" setup>
-import axios from "axios"
-// interface Props {
-  // revenues: { year: string; month: string; revenue: string | null }[];
-  // costs: { year: string; month: string; cost: string | null }[];
-// }
-
-// const { revenues, costs } = defineProps<Props>();
-
+import axios from "axios";
 import VueApexCharts from "vue3-apexcharts";
-import { onMounted, ref , watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 interface SeriesData {
   name: string;
   data: {
-    x: string;
-    y: string | null;
+    x: number;
+    y: number | null;
   }[];
 }
 interface ChartOptions {
@@ -116,51 +109,17 @@ interface ChartData {
   chartOptions: ChartOptions;
 }
 
-
-
 interface AverageCostBroker {
   average_revenue: number;
   average_cost: number;
   increase_average_revenue: number;
   increase_average_cost: number;
-  revenues: { year: string; month: string; revenue: string | null }[];
-  costs: { year: string; month: string; cost: string | null }[];
+  revenues: { year: number; month: number; revenue: number | null }[];
+  costs: { year: number; month: number; cost: number | null }[];
 }
 
-const average_cost_broker = ref<AverageCostBroker>({
-  average_revenue: 0,
-  average_cost: 0,
-  increase_average_revenue: 0,
-  increase_average_cost: 0,
-  revenues: [],
-  costs: [],
-});
-
-axios
-  .get(process.env.VUE_APP_URL + "overall/average-cost-broker")
-  .then((res) => {
-    average_cost_broker.value = res.data;
-    console.log(average_cost_broker.value, 'value have');
-  })
-  .catch((error) => {
-    console.error("Error fetching data:", error);
-  })
-    console.log(average_cost_broker.value, 'value not');
-
-
-
-
-const chartData: ChartData = {
-  series: [
-    {
-      name: "Revenue",
-      data: average_cost_broker.value.revenues.map((item) => ({ x: item.month, y: item.revenue })),
-    },
-    {
-      name: "Cost",
-      data: average_cost_broker.value.costs.map((item) => ({ x: item.month, y: item.cost })),
-    },
-  ],
+const chartData = ref<ChartData>({
+  series: [],
   chartOptions: {
     chart: {
       height: 350,
@@ -246,8 +205,8 @@ const chartData: ChartData = {
       title: {
         text: "",
       },
-      min: 5,
-      max: 40,
+      min: 100,
+      max: 17500,
     },
     legend: {
       position: "top",
@@ -257,11 +216,140 @@ const chartData: ChartData = {
       offsetX: -5,
     },
   },
-};
+});
 
+const average_cost_broker = ref<AverageCostBroker>({
+  average_revenue: 0,
+  average_cost: 0,
+  increase_average_revenue: 0,
+  increase_average_cost: 0,
+  revenues: [],
+  costs: [],
+});
 
+axios
+  .get(process.env.VUE_APP_URL + "overall/average-cost-broker")
+  .then((res) => {
+    average_cost_broker.value = res.data;
+    chartData.value = {
+      series: [
+        {
+          name: "Revenue",
+          data: average_cost_broker.value.revenues.map((item) => ({
+            x: +item.month,
+            y: item.revenue,
+          })),
+        },
+        {
+          name: "Cost",
+          data: average_cost_broker.value.costs.map((item) => ({
+            x: +item.month,
+            y: item.cost,
+          })),
+        },
+      ],
+      chartOptions: {
+        chart: {
+          height: 350,
+          type: "line",
+          dropShadow: {
+            enabled: true,
+            color: "#000",
+            top: 18,
+            left: 7,
+            blur: 10,
+            opacity: 0.1,
+          },
+          toolbar: {
+            show: false,
+          },
+        },
+        colors: ["#92BAFB", "#F29E61"],
+        stroke: {
+          width: [3, 3, 1],
+          curve: "smooth",
+          dashArray: [0, 7, 8],
+        },
+        title: {
+          text: "",
+          align: "left",
+        },
+        grid: {
+          borderColor: "transparent",
+          row: {
+            colors: ["#f3f3f3", "transparent"],
+            opacity: 0,
+          },
+        },
+        markers: {
+          size: [6, 0],
+          shape: "circle",
+          colors: ["white", "white"],
+          strokeColors: ["#92BAFB", "#92BAFB"],
+          hover: {
+            size: 6,
+            sizeOffset: 3,
+            colors: ["#F29E61", "#92BAFB"],
+          },
+        },
 
-
+        tooltip: {
+          enabled: true,
+          theme: "light",
+          tooltip: {
+            x: {
+              show: true,
+            },
+          },
+          followCursor: true,
+          placement: "top",
+        },
+        dataLabels: {
+          enabled: false,
+          style: {
+            colors: ["#92BAFB", "#F29E61"],
+          },
+        },
+        xaxis: {
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          title: {
+            text: "",
+          },
+        },
+        yaxis: {
+          title: {
+            text: "",
+          },
+          min: 900,
+          max: 20000,
+        },
+        legend: {
+          position: "top",
+          horizontalAlign: "right",
+          floating: true,
+          offsetY: -25,
+          offsetX: -5,
+        },
+      },
+    };
+  
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
 </script>
 
 <style>
