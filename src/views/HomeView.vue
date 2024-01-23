@@ -117,7 +117,7 @@
                   <span>${{ average_payout_carrier.average_revenue }}</span>
                   <div class="statistic">
                     <img src="../assets/icons/grow.svg" alt="grow" />
-                    6,5%
+                    {{ average_payout_carrier.increase_average_revenue }}
                   </div>
                 </div>
               </div>
@@ -132,7 +132,7 @@
                   <span>${{ average_payout_carrier.average_margin }}</span>
                   <div class="statistic">
                     <img src="../assets/icons/grow.svg" alt="grow" />
-                    6,5%
+                    {{ average_payout_carrier.increase_average_margin }} %
                   </div>
                 </div>
               </div>
@@ -149,55 +149,10 @@
               <div class="customer-btn">
                 <!-- btn-active -->
                 <!-- for showing that it is active  -->
-                <button class="btn" :class="{ 'btn-active': broker }" @click="TopBrokerFunc">
+                <button class="btn" >
                   Broker
                 </button>
-                <button class="btn">
-                  Carrier
-                </button>
-              </div>
-            </div>
-            <div class="customer-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>
-                      <div class="table-item">Customer Name</div>
-                    </th>
-                    <th>
-                      <div class="table-item">
-                        Performance
-                        <span>
-                          <img src="../assets/icons/arrow-up.svg" alt="arrow" />
-                        </span>
-                      </div>
-                    </th>
-                    <th>
-                      <div class="table-item">$ Margin</div>
-                    </th>
-                    <th>
-                      <div class="table-item">% Margin</div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody v-for="item in top_broker">
-                  <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
-                    :date="item.data" :percent="item.perfomance" :money="item.margin"
-                    :margin="item.percentage ? item.percentage : 'null'" />
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="customer">
-            <div class="customer-header">
-              <h4>Top Best 5 Customers</h4>
-              <div class="customer-btn">
-                <!-- btn-active -->
-                <!-- for showing that it is active  -->
-                <button class="btn">
-                  Broker
-                </button>
-                <button class="btn" :class="{ 'btn-active': carrier }" @click="TopCarrierFunc">
+                <button class="btn" :class="{ 'btn-active': broker }">
                   Carrier
                 </button>
               </div>
@@ -230,6 +185,56 @@
                     :date="item.data" :percent="item.perfomance" :money="item.margin"
                     :margin="item.percentage ? item.percentage : 'null'" />
                 </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="customer">
+            <div class="customer-header">
+              <h4>Top Best 5 Customers</h4>
+              <div class="customer-btn">
+                <!-- btn-active -->
+                <!-- for showing that it is active  -->
+                <button class="btn" :class="{ 'btn-active': carrier }">
+                  Broker
+                </button>
+                <button class="btn" >
+                  Carrier
+                </button>
+              </div>
+            </div>
+            <div class="customer-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="table-item">Customer Name</div>
+                    </th>
+                    <th>
+                      <div class="table-item">
+                        Performance
+                        <span>
+                          <img src="../assets/icons/arrow-up.svg" alt="arrow" />
+                        </span>
+                      </div>
+                    </th>
+                    <th>
+                      <div class="table-item">$ Margin</div>
+                    </th>
+                    <th>
+                      <div class="table-item">% Margin</div>
+                    </th>
+                  </tr>
+                </thead>
+                <!-- <tbody v-for="item in top_carriers">
+                  <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
+                    :date="item.data" :percent="item.perfomance" :money="item.margin"
+                    :margin="item.percentage ? item.percentage : 'null'" /> -->
+                <tbody v-for="item in top_broker">
+                  <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
+                    :date="item.data" :percent="item.perfomance" :money="item.margin"
+                    :margin="item.percentage ? item.percentage : 'null'" />
+                </tbody>
+                <!-- </tbody> -->
               </table>
             </div>
           </div>
@@ -292,7 +297,7 @@ interface AveragePayoutCarrier {
   average_revenue: number;
   average_margin: number;
   increase_average_revenue: number;
-  increase_average_cost: number;
+  increase_average_margin: number;
   revenues: { year: string; month: string; revenue: string | null }[];
   margins: { year: string; month: string; margin: string | null }[];
 }
@@ -362,7 +367,7 @@ const average_payout_carrier = ref<AveragePayoutCarrier>({
   average_revenue: 0,
   average_margin: 0,
   increase_average_revenue: 0,
-  increase_average_cost: 0,
+  increase_average_margin: 0,
   revenues: [],
   margins: [],
 });
@@ -418,7 +423,6 @@ const carrier = ref<boolean>(false);
 
 let TopBrokerFunc = () => {
   broker.value = broker.value = true
-
   axios
     .get(process.env.VUE_APP_URL + "overall/top-brokers")
     .then((res) => {
@@ -452,8 +456,8 @@ onMounted(() => {
   Companyfunc();
   UsersFunc();
   SoldFunc();
-  TopBrokerFunc()
   TopCarrierFunc()
+  TopBrokerFunc()
 });
 </script>
 <style scoped>
@@ -824,7 +828,7 @@ onMounted(() => {
   font-style: normal;
   color: #000;
   font-family: Euclid-Medium;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .btn-active {

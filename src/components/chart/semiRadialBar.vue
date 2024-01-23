@@ -1,15 +1,35 @@
 <template >
-    <div role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"
-        :style="{
+    <!-- <div role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" :style="{
         '--value': percent,
         '--primary': percent < 50 ? '#FF6565' : (percent < 80 ? '#FFCD02' : '#20E301'),
+    }">
+    </div> -->
+    <div role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" :style="{
+        '--value': percent,
+        '--primary': primaryColor,
     }">
     </div>
 </template>
 <script lang="ts" setup>
-defineProps({
-    percent: Number,
-})
+import { ref, computed } from 'vue';
+
+const props = defineProps({
+    percent: {
+        type: Number,
+        default: 0, // Provide a default value for percent
+    },
+});
+
+const primaryColor = computed(() => {
+    if (props.percent < 50) {
+        return '#FF6565';
+    } else if (props.percent < 80) {
+        return '#FFCD02';
+    } else {
+        return '#20E301';
+    }
+});
+
 </script>
 <style scoped>
 @keyframes progress {
