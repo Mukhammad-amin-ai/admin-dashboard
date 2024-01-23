@@ -249,14 +249,14 @@ axios
       series: [
         {
           name: "Revenue",
-          data: average_cost_broker.value.revenues.slice( 0 ,12).map((item) => ({
+          data: average_cost_broker.value.revenues.slice(-12).map((item) => ({
             x: +item.month,
             y: item.revenue,
           })),
         },
         {
           name: "Cost",
-          data: average_cost_broker.value.costs.slice(0, 12).map((item) => ({
+          data: average_cost_broker.value.costs.slice(-12).map((item) => ({
             x: +item.month,
             y: item.cost,
           })),
@@ -363,6 +363,8 @@ axios
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
+
+
 </script>
 
 <style>
