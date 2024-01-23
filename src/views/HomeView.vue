@@ -18,7 +18,6 @@
                 <option value="Year">Yearly</option>
               </select>
             </div>
-
             <div class="docs">
               Export Data
               <img src="../assets/icons/document-download.svg" alt="document-download" />
@@ -48,19 +47,20 @@
     <div class="main-section">
       <div class="dashboard-wrapper">
         <div class="dashboard-cards">
-          <DashboardCards img="/icons/Customer-Icon.svg" topText="Customers" box1text="Active" box2text="Inactive"
-            box3text="Suspended" :box1="overall_customer.active" :box2="overall_customer.inactive"
+          <DashboardCards :checker="customer" img="/icons/Customer-Icon.svg" topText="Customers" box1text="Active"
+            box2text="Inactive" box3text="Suspended" :box1="overall_customer.active" :box2="overall_customer.inactive"
             :box3="overall_customer.suspended" :percent="overall_customer.increase_percentage"
             :grow="overall_customer.increase" />
-          <DashboardCards img="/icons/Company-Icon.svg" topText="Companies" box1text="Total" box2text="Parent"
-            box3text="Child" :box1="overall_company.total" :box2="overall_company.parent" :box3="overall_company.child"
-            :percent="overall_company.increase_percentage" :grow="overall_company.increase" />
-          <DashboardCards img="/icons/User-Icon.svg" topText="Users" box1text="Total" box2text="Active"
+          <DashboardCards :checker="company" img="/icons/Company-Icon.svg" topText="Companies" box1text="Total"
+            box2text="Parent" box3text="Child" :box1="overall_company.total" :box2="overall_company.parent"
+            :box3="overall_company.child" :percent="overall_company.increase_percentage"
+            :grow="overall_company.increase" />
+          <DashboardCards :checker="users" img="/icons/User-Icon.svg" topText="Users" box1text="Total" box2text="Active"
             box3text="Inactive" :box1="overall_user.total" :box2="overall_user.active" :box3="overall_user.inactive"
             :percent="overall_user.increase_percentage" :grow="overall_user.increase" />
-          <DashboardCards img="/icons/Box-Icon.svg" topText="Loads Sold" box1text="Total" box2text="W/Platform"
-            box3text="Outside P." :box1="overall_sold.total" :box2="overall_sold.platform" :box3="overall_sold.outside"
-            :percent="overall_sold.increase_percentage" :grow="overall_sold.increase" />
+          <DashboardCards :checker="sold" img="/icons/Box-Icon.svg" topText="Loads Sold" box1text="Total"
+            box2text="W/Platform" box3text="Outside P." :box1="overall_sold.total" :box2="overall_sold.platform"
+            :box3="overall_sold.outside" :percent="overall_sold.increase_percentage" :grow="overall_sold.increase" />
         </div>
       </div>
       <div class="wrapper">
@@ -77,7 +77,11 @@
                 </div>
                 <div class="bottom">
                   <span> ${{ average_cost_broker.average_revenue }}</span>
-                  <div class="statistic">
+                  <div class="statistic" v-if='brocker_revenue' style="color: #4478FF;">
+                    <img src="../assets/icons/grow.svg" alt="grow" />
+                    {{ average_cost_broker.increase_average_revenue }} %
+                  </div>
+                  <div class="statistic" v-else style="color: #60BF98;">
                     <img src="../assets/icons/decrease.svg" alt="decrease" />
                     {{ average_cost_broker.increase_average_revenue }} %
                   </div>
@@ -92,7 +96,11 @@
                 </div>
                 <div class="bottom">
                   <span>${{ average_cost_broker.average_cost }}</span>
-                  <div class="statistic">
+                  <div class="statistic" v-if='brocker_cost' style="color: #4478FF;">
+                    <img src="../assets/icons/grow.svg" alt="decrease" />
+                    {{ average_cost_broker.increase_average_cost }} %
+                  </div>
+                  <div class="statistic" v-else style="color: #60BF98;">
                     <img src="../assets/icons/decrease.svg" alt="decrease" />
                     {{ average_cost_broker.increase_average_cost }} %
                   </div>
@@ -115,8 +123,12 @@
                 </div>
                 <div class="bottom">
                   <span>${{ average_payout_carrier.average_revenue }}</span>
-                  <div class="statistic">
+                  <div class="statistic" v-if="payout_revenue" style="color: #4478FF;">
                     <img src="../assets/icons/grow.svg" alt="grow" />
+                    {{ average_payout_carrier.increase_average_revenue }}
+                  </div>
+                  <div class="statistic" v-else style="color: #60BF98;">
+                    <img src="../assets/icons/decrease.svg" alt="decrease" />
                     {{ average_payout_carrier.increase_average_revenue }}
                   </div>
                 </div>
@@ -130,8 +142,12 @@
                 </div>
                 <div class="bottom">
                   <span>${{ average_payout_carrier.average_margin }}</span>
-                  <div class="statistic">
+                  <div class="statistic" v-if="payout_margin" style="color: #4478FF;">
                     <img src="../assets/icons/grow.svg" alt="grow" />
+                    {{ average_payout_carrier.increase_average_margin }} %
+                  </div>
+                  <div class="statistic" v-else style="color: #60BF98;">
+                    <img src="../assets/icons/decrease.svg" alt="grow" />
                     {{ average_payout_carrier.increase_average_margin }} %
                   </div>
                 </div>
@@ -147,9 +163,7 @@
             <div class="customer-header">
               <h4>Top Best 5 Customers</h4>
               <div class="customer-btn">
-                <!-- btn-active -->
-                <!-- for showing that it is active  -->
-                <button class="btn" >
+                <button class="btn">
                   Broker
                 </button>
                 <button class="btn" :class="{ 'btn-active': broker }">
@@ -192,12 +206,10 @@
             <div class="customer-header">
               <h4>Top Best 5 Customers</h4>
               <div class="customer-btn">
-                <!-- btn-active -->
-                <!-- for showing that it is active  -->
                 <button class="btn" :class="{ 'btn-active': carrier }">
                   Broker
                 </button>
-                <button class="btn" >
+                <button class="btn">
                   Carrier
                 </button>
               </div>
@@ -225,16 +237,11 @@
                     </th>
                   </tr>
                 </thead>
-                <!-- <tbody v-for="item in top_carriers">
-                  <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
-                    :date="item.data" :percent="item.perfomance" :money="item.margin"
-                    :margin="item.percentage ? item.percentage : 'null'" /> -->
                 <tbody v-for="item in top_broker">
                   <topCard :icon="item.logo" :percentProp="item.perfomance" :name="item.name ? item.name : 'null'"
                     :date="item.data" :percent="item.perfomance" :money="item.margin"
                     :margin="item.percentage ? item.percentage : 'null'" />
                 </tbody>
-                <!-- </tbody> -->
               </table>
             </div>
           </div>
@@ -392,27 +399,46 @@ const top_carriers = ref<TopCarriers>({
   perfomance: 0,
 })
 
+const customer = ref<boolean>(true)
 
 let Customerfunc = () => {
   axios.get(process.env.VUE_APP_URL + "overall/customers").then((res) => {
+    if (res.data.increase_percentage < 0) {
+      customer.value = false
+    }
     overall_customer.value = res.data;
   });
 };
 
+const company = ref<boolean>(true)
+
 let Companyfunc = () => {
   axios.get(process.env.VUE_APP_URL + "overall/companies").then((res) => {
+    if (res.data.increase_percentage < 0) {
+      company.value = false
+    }
     overall_company.value = res.data;
   });
 };
 
+const users = ref<boolean>(true)
+
 let UsersFunc = () => {
   axios.get(process.env.VUE_APP_URL + "overall/users").then((res) => {
+    if (res.data.increase_percentage < 0) {
+      users.value = false
+    }
     overall_user.value = res.data;
   });
 };
 
+const sold = ref<boolean>(true)
+
 let SoldFunc = () => {
   axios.get(process.env.VUE_APP_URL + "overall/loads-sold").then((res) => {
+    if (res.data.increase_percentage < 0) {
+      sold.value = false
+    }
     overall_sold.value = res.data;
   });
 };
@@ -432,7 +458,6 @@ let TopBrokerFunc = () => {
 
 let TopCarrierFunc = () => {
   carrier.value = carrier.value = true
-
   axios
     .get(process.env.VUE_APP_URL + "overall/top-carriers")
     .then((res) => {
@@ -440,16 +465,34 @@ let TopCarrierFunc = () => {
     });
 }
 
+const brocker_revenue = ref<boolean>(true)
+const brocker_cost = ref<boolean>(true)
+
+const payout_revenue = ref<boolean>(true)
+const payout_margin = ref<boolean>(true)
+
 
 onMounted(() => {
   axios
     .get(process.env.VUE_APP_URL + "overall/average-cost-broker")
     .then((res) => {
+      if (res.data.increase_average_revenue < 0) {
+        brocker_revenue.value = false
+      }
+      if (res.data.increase_average_cost < 0) {
+        brocker_cost.value = false
+      }
       average_cost_broker.value = res.data;
     });
   axios
     .get(process.env.VUE_APP_URL + "overall/average-payout-carrier")
     .then((res) => {
+      if (res.data.increase_average_revenue < 0) {
+        payout_revenue.value = false
+      }
+      if (res.data.increase_average_margin < 0) {
+        payout_margin.value = false
+      }
       average_payout_carrier.value = res.data;
     });
   Customerfunc();

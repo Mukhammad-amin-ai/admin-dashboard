@@ -9,9 +9,13 @@
                     <h4>{{ topText }}</h4>
                 </div>
                 <div class="right">
-                    <div class="stat">
+                    <div class="stat" v-if="checker">
                         <img src="../assets/icons/grow.svg" alt="grow">
-                        <span>{{ percent }} %</span> +{{ grow }} month
+                        <span >{{ percent }} %</span>+{{ grow }} month
+                    </div>
+                    <div class="stat" v-else>
+                        <img src="../assets/icons/decrease.svg" alt="grow">
+                        <span style="color: #60BF98;" >{{ percent }} %</span>{{ grow }} month
                     </div>
                 </div>
             </div>
@@ -44,7 +48,8 @@ defineProps({
     box3: Number,
     percent: Number,
     grow: Number,
-    img: String
+    img: String,
+    checker: Boolean
 })
 
 </script>
@@ -155,7 +160,8 @@ defineProps({
     .box h4 {
         font-size: 20px;
     }
-    .box p{
+
+    .box p {
         font-size: 12px;
     }
 }
