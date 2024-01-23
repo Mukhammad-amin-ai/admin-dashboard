@@ -49,8 +49,7 @@ interface ChartOptions {
       };
     };
   };
- 
- 
+
   grid: {
     borderColor: string;
     row: {
@@ -184,14 +183,14 @@ axios
       series: [
         {
           name: "Revenue",
-          data: average_payout_carrier.value.revenues.map((item) => ({
+          data: average_payout_carrier.value.revenues.slice(0, 12).map((item) => ({
             x: item.month,
             y: item.revenue,
           })),
         },
         {
           name: "Margin",
-          data: average_payout_carrier.value.margins.map((item) => ({
+          data: average_payout_carrier.value.margins.slice(0,12).map((item) => ({
             x: item.month,
             y: item.margin,
           })),
@@ -270,8 +269,6 @@ axios
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
- 
-  
 </script>
 <style>
 .apexcharts-bar-area {
