@@ -140,7 +140,7 @@ const chartData = ref<ChartData>({
         opacity: 0.1,
       },
       toolbar: {
-        show: false,
+        show: true,
       },
     },
     colors: ["#92BAFB", "#F29E61"],
@@ -249,14 +249,14 @@ axios
       series: [
         {
           name: "Revenue",
-          data: average_cost_broker.value.revenues.map((item) => ({
+          data: average_cost_broker.value.revenues.slice(-12).map((item) => ({
             x: +item.month,
             y: item.revenue,
           })),
         },
         {
           name: "Cost",
-          data: average_cost_broker.value.costs.map((item) => ({
+          data: average_cost_broker.value.costs.slice(-12).map((item) => ({
             x: +item.month,
             y: item.cost,
           })),
@@ -275,7 +275,7 @@ axios
             opacity: 0.1,
           },
           toolbar: {
-            show: false,
+            show: true,
           },
         },
         colors: ["#92BAFB", "#F29E61"],
@@ -363,6 +363,8 @@ axios
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
+
+
 </script>
 
 <style>
