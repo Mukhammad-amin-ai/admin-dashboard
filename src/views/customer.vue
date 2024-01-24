@@ -319,6 +319,7 @@ import card from '../components/customer-management/card.vue'
     font-size: 14px;
     font-family: Euclid-Medium;
     cursor: pointer;
+  text-decoration: none;
 }
 
 .active {

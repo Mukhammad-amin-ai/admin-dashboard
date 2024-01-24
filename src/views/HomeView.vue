@@ -43,10 +43,11 @@
             felis sit et a proin nulla.
           </p>
         </div>
+
         <div class="tab-bar">
-          <div class="item active">General</div>
-          <div class="item">Customer Management</div>
-          <div class="item">Invoicing</div>
+          <router-link to="/" class="item active" :class="$route.path === '/'">General </router-link>
+          <router-link to="/customer" class="item" :class="$route.path === '/customer'">Customer Management</router-link>
+          <router-link to="/invoicing" class="item" :class="$route.path === '/invoicing'">Invoicing</router-link>
         </div>
       </div>
     </div>
@@ -739,6 +740,7 @@ onMounted(() => {
   font-size: 14px;
   font-family: Euclid-Medium;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .active {

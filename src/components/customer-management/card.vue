@@ -61,7 +61,7 @@
             <div class="table-content-item">
                 <div class="switch__container">
                     <!-- switeched for customer status -->
-                    <input id="switch-shadow" class="switch switch--shadow" type="checkbox">
+                    <input id="switch-shadow" class="switch switch--shadow switeched" type="checkbox">
                     <label for="switch-shadow"></label>
                 </div>
             </div>
@@ -151,20 +151,14 @@ td:nth-child(10){
     transition: all 0.4s;
 }
 
-/* .switch--shadow:checked+label:before {
+ .switch--shadow:checked+label:before {
     background-color: #6BD6AA;
 }
 
 .switch--shadow:checked+label:after {
     transform: translateX(20px);
-} */
-.switeched+label:before {
-    background-color: #6BD6AA;
 }
 
-.switeched+label:after {
-    transform: translateX(20px);
-}
 
 
 </style>
