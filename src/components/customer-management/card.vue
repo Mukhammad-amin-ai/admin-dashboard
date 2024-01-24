@@ -2,59 +2,59 @@
     <tr>
         <td>
             <div class="table-content-item">
-                <img src="../../assets/images/Avatar6.png" alt="Avatar">
-                AMZ
+                <img :src="customerData.logo" :alt="customerData.customer_name">
+
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                Parent ID
+               {{customerData.parent_id}}
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                Broker
+              {{customerData.customer_type}}
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                Logistics
+              {{customerData.customer_name}}
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                <span style="white-space: nowrap;">Dianne Russell</span>
+                <span style="white-space: nowrap;"> {{customerData.parent_name}}</span>
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                <span style="white-space: nowrap;">(671) 555-0110</span>
+                <span style="white-space: nowrap;"> {{customerData.phone}}</span>
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                michael.mitc@...
+              {{customerData.email}}
             </div>
         </td>
         <td>
             <div class="table-content-item">
                 <img src="../../assets/icons/calendar.svg" alt="calendar">
-                09/07/2022
+              {{customerData.start_date}}
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                BP01
+              {{customerData.plan_type}}
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                0 %
+              {{customerData.variable_rate}}%
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                $17.84
+                ${{customerData.fixed_rate}}
             </div>
         </td>
         <td>
@@ -69,7 +69,9 @@
     </tr>
 </template>
 <script lang="ts" setup>
+import { defineProps } from 'vue';
 
+const props = defineProps(['customerData']);
 </script>
 <style scoped>
 td {
