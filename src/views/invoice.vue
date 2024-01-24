@@ -138,13 +138,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <card/>
-                                <card/>
-                                <card/>
-                                <card/>
-                                <card/>
-                                <card/>
-                                <card/>
+                                <card />
+                                <card />
+                                <card />
+                                <card />
+                                <card />
+                                <card />
+                                <card />
 
                             </tbody>
                         </table>
@@ -342,9 +342,6 @@ import card from '../components/invoicing/card.vue'
     position: relative;
 }
 
-/* .main-section .wrapper{
-    padding-bottom: 50px;
-} */
 .customer {
     width: 94%;
     height: auto;
@@ -459,14 +456,14 @@ import card from '../components/invoicing/card.vue'
 
 table {
     border-collapse: collapse;
-    
+
 }
 
 thead tr,
 tbody tr {
     width: 100%;
     height: 100%;
-   
+
     border-bottom: 1px solid #EAEDF0;
 }
 
@@ -486,5 +483,88 @@ th {
     gap: 117px;
     align-self: stretch;
     background: rgba(224, 225, 229, 0.07);
+}
+
+
+@media screen and (max-width:650px) {
+    .filters {
+        flex-wrap: wrap;
+    }
+
+    .arrow-left {
+        margin-left: 5px;
+        margin-bottom: 30px;
+    }
+
+    .nav-bar {
+        width: 90%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-text p {
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width:550px) {
+    .customer-header {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .hero-text h1 {
+        font-size: 38px;
+    }
+
+    .item {
+        font-size: 10px;
+    }
+
+    .config {
+        width: auto;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .header-section .wrapper {
+        width: 90%;
+    }
+
+    .nav-bar {
+        width: 80%;
+    }
+
+    .show {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .show select {
+        font-size: 10px;
+    }
+
+    .docs {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .item {
+        font-size: 9px;
+    }
+
+    .filter-item {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .hero-text h1 {
+        font-size: 35px;
+    }
 }
 </style>

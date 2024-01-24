@@ -131,13 +131,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <card/>
-                                <card/>
-                                <card/>
-                                <card/>
-                                <card/>
-                                <card/>
-                                <card/>
+                                <card />
+                                <card />
+                                <card />
+                                <card />
+                                <card />
+                                <card />
+                                <card />
                             </tbody>
                         </table>
                     </div>
@@ -263,7 +263,7 @@ import card from '../components/customer-management/card.vue'
 .wrapper {
     width: 94%;
     height: auto;
-    
+
 }
 
 .breadcrumb {
@@ -478,9 +478,83 @@ th {
 
 
 @media screen and (max-width:650px) {
-    .filters{
-        /* flex-direc`; */
+    .filters {
+        flex-wrap: wrap;
+    }
+
+    .arrow-left {
+        margin-left: 5px;
+        margin-bottom: 30px;
+    }
+
+    .nav-bar {
+        width: 90%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-text p {
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width:550px) {
+    .customer-header {
+        gap: 10px;
+        flex-wrap: wrap;
     }
 }
 
+@media screen and (max-width:425px) {
+    .hero-text h1 {
+        font-size: 38px;
+    }
+
+    .item {
+        font-size: 10px;
+    }
+
+    .config {
+        width: auto;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .header-section .wrapper {
+        width: 90%;
+    }
+
+    .nav-bar {
+        width: 80%;
+    }
+
+    .show {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .show select {
+        font-size: 10px;
+    }
+
+    .docs {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .item {
+        font-size: 9px;
+    }
+    .filter-item{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .hero-text h1 {
+        font-size: 35px;
+    }
+}
 </style>
