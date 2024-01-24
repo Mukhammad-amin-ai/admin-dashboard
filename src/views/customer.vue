@@ -131,13 +131,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <card />
-                                <card />
-                                <card />
-                                <card />
-                                <card />
-                                <card />
-                                <card />
+
+                            <card v-for="item in data" :key="item" :customerData="item" />
+
                             </tbody>
                         </table>
                     </div>
@@ -147,7 +143,47 @@
     </div>
 </template>
 <script lang="ts" setup>
-import card from '../components/customer-management/card.vue'
+import Card from "@/components/customer-management/card.vue"
+import { ref } from 'vue';
+import axios from "axios";
+
+interface CustomerData {
+  logo: string;
+  customer_id: number;
+  parent_id: number | null;
+  customer_type: string;
+  customer_name: string;
+  parent_name: string | null;
+  phone: string;
+  email: string;
+  start_date: string;
+  plan_type: string;
+  variable_rate: number;
+  fixed_rate: number;
+  customer_status: boolean;
+}
+
+const data = ref < CustomerData[]> ( [
+  {
+    logo: "",
+    customer_id: 1,
+    parent_id: null,
+    customer_type: "",
+    customer_name: "",
+    parent_name: "",
+    phone: "",
+    email: "",
+    start_date: "",
+    plan_type: "",
+    variable_rate: 0,
+    fixed_rate: 0,
+    customer_status: true
+  },
+])
+
+axios.get(process.env.VUE_APP_URL + "overall/customers-managment?page_number=1&page_size=5").then((res) => {
+  data.value = res.data.data
+})
 </script>
 <style scoped>
 .container {
