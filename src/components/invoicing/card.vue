@@ -7,78 +7,86 @@
         </td>
         <td>
             <div class="table-content-item">
-                <img src="../../assets/images/Avatar6.png" alt="Avatar">
-                AMZ
+                <img :src="invoiceData.logo" alt="Avatar">
+              {{ invoiceData.customer_id }}
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                Parent ID
+              {{ invoiceData.parent_id }}
+
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                Broker
+              {{ invoiceData.customer_type }}
+
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                Logistics
+              {{ invoiceData.customer_name }}
+
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                <span>05/07/2022</span>
-                <span>05/07/2023</span>
-            </div>
-        </td>
-        <td>
-            <div class="table-content-item">
-                <img src="../../assets/icons/calendar.svg" alt="calendar">
-                09/07/2022
-            </div>
-        </td>
-        <td>
-            <div class="table-content-item">
-                $17.84
-            </div>
-        </td>
-        <td>
-            <div class="table-content-item">
-                $17.84
-            </div>
-        </td>
-        <td>
-            <div class="table-content-item">
-                <span style="white-space: nowrap;">(671) 555-0110</span>
-            </div>
-        </td>
-        <td>
-            <div class="table-content-item">
-                michael.mitc@...
-            </div>
-        </td>
-        <td>
-            <div class="table-content-item">
-                Paid
+              <span style="color:#92969F !important;">{{ invoiceData.invoice_period.split('\n')[0] }}</span>
+              <span>{{ invoiceData.invoice_period.split('\n')[1] }}</span>
             </div>
         </td>
         <td>
             <div class="table-content-item">
                 <img src="../../assets/icons/calendar.svg" alt="calendar">
-                09/07/2022
+              {{ invoiceData.due_date }}
+
+            </div>
+        </td>
+        <td>
+            <div class="table-content-item">
+              $   {{ invoiceData.current_balance }}
+
+            </div>
+        </td>
+        <td>
+            <div class="table-content-item">
+                $              {{ invoiceData.past_due_balance }}
+
+            </div>
+        </td>
+        <td>
+            <div class="table-content-item">
+                <span style="white-space: nowrap;"> {{ invoiceData.phone }}</span>
+            </div>
+        </td>
+        <td>
+            <div class="table-content-item">
+              {{ invoiceData.email }}
+            </div>
+        </td>
+        <td>
+            <div class="table-content-item">
+              {{ invoiceData.invoice_status }}
             </div>
         </td>
         <td>
             <div class="table-content-item">
                 <img src="../../assets/icons/calendar.svg" alt="calendar">
-                09/07/2022
+              {{ invoiceData.invoice_date }}
+            </div>
+        </td>
+        <td>
+            <div class="table-content-item">
+                <img src="../../assets/icons/calendar.svg" alt="calendar">
+              {{ invoiceData.reminder_sent }}
             </div>
         </td>
     </tr>
 </template>
 <script lang="ts" setup>
+import { defineProps } from 'vue';
 
+const props = defineProps(['invoiceData']);
 </script>
 <style scoped>
 td {

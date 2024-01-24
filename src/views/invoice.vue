@@ -138,13 +138,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <card />
-                                <card />
-                                <card />
-                                <card />
-                                <card />
-                                <card />
-                                <card />
+
+                            <card v-for="item in data" :key="item" :invoiceData="item" />
+
 
                             </tbody>
                         </table>
@@ -156,6 +152,49 @@
 </template>
 <script lang="ts" setup>
 import card from '../components/invoicing/card.vue'
+import {ref} from "vue";
+import axios from "axios";
+
+
+interface invoicingData {
+  logo: string;
+  customer_id: number;
+  parent_id: number | null;
+  customer_type: string;
+  customer_name: string;
+  invoice_period: string | null;
+  due_date: string;
+  current_balance: number;
+  past_due_balance: number;
+  phone: string;
+  email: string;
+  invoice_status: string;
+  invoice_date: string;
+  reminder_sent: string;
+}
+
+const data = ref < invoicingData[]> ( [
+  {
+    logo: "",
+    customer_id: 0,
+    parent_id: 0,
+    customer_type: "",
+    customer_name: "",
+    invoice_period: "",
+    due_date: "",
+    current_balance: 0,
+    past_due_balance: 0,
+    phone: "",
+    email: "",
+    invoice_status: "",
+    invoice_date: "",
+    reminder_sent: '',
+  },
+])
+
+axios.get(process.env.VUE_APP_URL + "overall/invoicing?page_number=1&page_size=10").then((res) => {
+  data.value = res.data.data
+})
 </script>
 <style scoped>
 .container {
