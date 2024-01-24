@@ -88,9 +88,14 @@
                         </div>
                     </div>
                     <div class="customer-table">
-                        <!-- <table>
+                        <table>
                             <thead>
                                 <tr>
+                                    <th>
+                                        <div class="table-head-item">
+                                            <input type="checkbox">
+                                        </div>
+                                    </th>
                                     <th>
                                         <div class="table-head-item"> Customer ID</div>
                                     </th>
@@ -104,7 +109,16 @@
                                         <div class="table-head-item">Customer Name</div>
                                     </th>
                                     <th>
-                                        <div class="table-head-item">Parrent Name</div>
+                                        <div class="table-head-item">İnvoice Period</div>
+                                    </th>
+                                    <th>
+                                        <div class="table-head-item">Due Date</div>
+                                    </th>
+                                    <th>
+                                        <div class="table-head-item">Current Balance</div>
+                                    </th>
+                                    <th>
+                                        <div class="table-head-item">Past Due Balance</div>
                                     </th>
                                     <th>
                                         <div class="table-head-item">Phone</div>
@@ -113,21 +127,14 @@
                                         <div class="table-head-item">E-mail</div>
                                     </th>
                                     <th>
-                                        <div class="table-head-item">Start Date</div>
+                                        <div class="table-head-item">Invoice Status</div>
                                     </th>
                                     <th>
-                                        <div class="table-head-item">Plan Type</div>
+                                        <div class="table-head-item">Invoice Date</div>
                                     </th>
                                     <th>
-                                        <div class="table-head-item">Veriable Rate</div>
+                                        <div class="table-head-item"> Reminder Sent</div>
                                     </th>
-                                    <th>
-                                        <div class="table-head-item">Fixed Rate</div>
-                                    </th>
-                                    <th>
-                                        <div class="table-head-item">Customer Status</div>
-                                    </th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -138,8 +145,9 @@
                                 <card/>
                                 <card/>
                                 <card/>
+
                             </tbody>
-                        </table> -->
+                        </table>
                     </div>
                 </div>
             </div>
@@ -147,6 +155,7 @@
     </div>
 </template>
 <script lang="ts" setup>
+import card from '../components/invoicing/card.vue'
 </script>
 <style scoped>
 .container {
@@ -262,7 +271,7 @@
 .wrapper {
     width: 94%;
     height: auto;
-    
+
 }
 
 .breadcrumb {
@@ -332,6 +341,7 @@
     justify-content: center;
     position: relative;
 }
+
 /* .main-section .wrapper{
     padding-bottom: 50px;
 } */
@@ -444,17 +454,19 @@
 .customer-table {
     display: flex;
     align-items: flex-start;
+    overflow: auto;
 }
 
 table {
     border-collapse: collapse;
-
+    
 }
 
 thead tr,
 tbody tr {
     width: 100%;
     height: 100%;
+   
     border-bottom: 1px solid #EAEDF0;
 }
 
