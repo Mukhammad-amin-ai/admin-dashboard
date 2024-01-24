@@ -9,12 +9,12 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView,
   },
   {
-    path: "/Customer",
+    path: "/customer",
     name: "customer",
     component: customerVue,
   },
   {
-    path: "/Invoicing",
+    path: "/invoicing",
     name: "invoicing",
     component: invoiceVue,
   },

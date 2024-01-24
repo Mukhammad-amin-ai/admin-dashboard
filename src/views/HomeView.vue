@@ -43,10 +43,11 @@
             felis sit et a proin nulla.
           </p>
         </div>
+
         <div class="tab-bar">
-          <div class="item active">General</div>
-          <div class="item">Customer Management</div>
-          <div class="item">Invoicing</div>
+          <router-link to="/" class="item active">General</router-link>
+          <router-link to="/customer" class="item">Customer Management</router-link>
+          <router-link to="/invoicing" class="item">Invoicing</router-link>
         </div>
       </div>
     </div>
