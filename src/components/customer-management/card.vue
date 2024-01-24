@@ -23,12 +23,12 @@
         </td>
         <td>
             <div class="table-content-item">
-                Dianne Russell
+                <span style="white-space: nowrap;">Dianne Russell</span>
             </div>
         </td>
         <td>
             <div class="table-content-item">
-                (671) 555-0110
+                <span style="white-space: nowrap;">(671) 555-0110</span>
             </div>
         </td>
         <td>

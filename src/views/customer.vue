@@ -333,9 +333,7 @@ import card from '../components/customer-management/card.vue'
     justify-content: center;
     position: relative;
 }
-/* .main-section .wrapper{
-    padding-bottom: 50px;
-} */
+
 .customer {
     width: 94%;
     height: auto;
@@ -445,6 +443,7 @@ import card from '../components/customer-management/card.vue'
 .customer-table {
     display: flex;
     align-items: flex-start;
+    overflow: auto;
 }
 
 table {
@@ -476,4 +475,12 @@ th {
     align-self: stretch;
     background: rgba(224, 225, 229, 0.07);
 }
+
+
+@media screen and (max-width:650px) {
+    .filters{
+        /* flex-direc`; */
+    }
+}
+
 </style>
