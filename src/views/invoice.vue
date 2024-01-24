@@ -49,8 +49,8 @@
                 <div class="customer">
                     <div class="customer-header">
                         <div class="customer-logo">
-                            <img src="../assets/images/customer-section.png" alt="customer">
-                            <h2>Customer</h2>
+                            <img src="../assets/images/Invoicing.png" alt="Invoicing">
+                            <h2>Invoicing</h2>
                         </div>
                         <div class="customer-search">
                             <img src="../assets/svg/search-normal.svg" alt="search">
